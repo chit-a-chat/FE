@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "🔍 커밋 전 코드 검사"
+
+# untracked => tracked => staged
+# staged된 파일 제외 모두 stash
+git stash -ku
+pnpm lint-staged
+# $?는 최근 명령어 성공여부 (-eq는 ==) )(-ne는 !==)
+if [ $? -eq 0 ]; then
+    echo "✅ 코드 검사를 통과했습니다."
+    git stash pop
+    exit 0
+else
+    echo "❌ 코드 검사를 다시 해주세요."
+    git stash pop
+    exit 1
+fi
