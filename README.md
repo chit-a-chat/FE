@@ -8,8 +8,8 @@
 
 ### 사전 요구사항
 
-- Node.js
-- PNPM
+-   Node.js
+-   PNPM
 
 ### 설치
 
