@@ -7,25 +7,25 @@ COMMITFORMAT="^\[(feat|bugfix|refactor|style|doc|test|build|chore|delete|infra)\
 if ! echo "$commit_message" | grep -qE "$COMMITFORMAT"; then
    echo "❌Error: 커밋메시지는 반드시 '[feat|bugfix|refactor|style|doc|test|build|chore|delete|infra]' 으로 시작해야합니다.❌"
    echo "
-Commit Message 포맷을 아래 예시와 같이 지켜주세요. (제목은 필수입니다.)
-[feat] 그룹 채팅 서비스 추가
-- 방장 서비스 추가
-- 그룹 채팅방 해쉬키 알고리즘 추가
-JIRA : [REQ-123]
-Issue : #156, #158
-----------------------
-[타입]  리스트
-feat          : 기능 (새로운 기능)
-bugfix               : 버그 (버그 수정)
-refactor           : 리팩토링
-style               : 스타일 (코드 형식, 세미콜론 추가: 비즈니스 로직에 변경 없음)
-doc              : 문서 (문서 추가, 수정, 삭제)
-test  : 테스트 (테스트 코드 추가, 수정, 삭제: 비즈니스 로직에 변경 없음)
-build            : 기타 변경사항 (빌드 스크립트 수정 등)
-chore             : 파일 혹은 폴더명을 수정하거나 옮기는 작업만 하는 경우
-delete              : 코드, 파일을 삭제하는 작업만 수행한 경우
-infra            : 배포 관련
-------------------"
+##   Commit Message 포맷을 아래 예시와 같이 지켜주세요. (제목은 필수입니다.)
+##   [feat] 그룹 채팅 서비스 추가
+##   - 방장 서비스 추가
+##   - 그룹 채팅방 해쉬키 알고리즘 추가
+##   JIRA : [REQ-123]
+##   Issue : #156, #158
+##   ------------------
+##   [타입]  리스트
+##   feat     : 기능 (새로운 기능)
+##   bugfix   : 버그 (버그 수정)
+##   refactor : 리팩토링
+##   style    : 스타일 (코드 형식, 세미콜론 추가: 비즈니스 로직에 변경 없음)
+##   doc      : 문서 (문서 추가, 수정, 삭제)
+##   test     : 테스트 (테스트 코드 추가, 수정, 삭제: 비즈니스 로직에 변경 없음)
+##   build    : 기타 변경사항 (빌드 스크립트 수정 등)
+##   chore    : 파일 혹은 폴더명을 수정하거나 옮기는 작업만 하는 경우
+##   delete   : 코드, 파일을 삭제하는 작업만 수행한 경우
+##   infra    : 배포 관련
+##   ------------------"
   
   exit 1  
 else
