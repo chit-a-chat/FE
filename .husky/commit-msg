@@ -2,10 +2,10 @@
 
 # 커밋 메시지 파일을 읽음
 commit_message=$(cat $1)
-COMMITFORMAT="^\[(feat|bugfix|refactor|style|doc|test|build|chore|delete|infra)\]"
+COMMITFORMAT="^\[(feat|bugfix|add|refactor|style|doc|test|build|chore|delete|infra)\]"
 # 커밋 메시지 말머리 검사
 if ! echo "$commit_message" | grep -qE "$COMMITFORMAT"; then
-   echo "❌Error: 커밋메시지는 반드시 '[feat|bugfix|refactor|style|doc|test|build|chore|delete|infra]' 으로 시작해야합니다.❌"
+   echo "❌Error: 커밋메시지는 반드시 '[feat|bugfix|add|refactor|style|doc|test|build|chore|delete|infra]' 으로 시작해야합니다.❌"
    echo "
 ##   Commit Message 포맷을 아래 예시와 같이 지켜주세요. (제목은 필수입니다.)
 ##   [feat] 그룹 채팅 서비스 추가
