@@ -4,7 +4,19 @@
     "trailingComma": "es5",
     "endOfLine": "lf",
     "plugins": ["@trivago/prettier-plugin-sort-imports"],
-    "importOrder": ["^react$", "^react(.*)", "<THIRD_PARTY_MODULES>", "@/(.*)", "^[./]"],
+    "importOrder": [
+        "^react$",
+        "^react(.*)",
+        "<THIRD_PARTY_MODULES>",
+        "^@apps/(.*)$",
+        "^@pages/(.*)$",
+        "^@widgets/(.*)$",
+        "^@features/(.*)$",
+        "^@entities/(.*)$",
+        "^@shared/(.*)$",
+        "@(.*)",
+        "^[./]"
+    ],
     "importOrderSeparation": true,
     "importOrderSortSpecifiers": true
 }
