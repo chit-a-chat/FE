@@ -33,7 +33,10 @@
             "@entities/*": ["./entities/*"],
             "@shared/*": ["./shared/*"],
             "@*": ["./*"]
-        }
+        },
+
+        /* Emotion */
+        "types": ["@emotion/react/types/css-prop"]
     },
     "include": ["src"]
 }
