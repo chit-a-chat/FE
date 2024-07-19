@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 
-import { ThemeProvider } from "@emotion/react";
+import { theme } from "@shared/ui";
 
-import { theme } from "../ui";
+import { ThemeProvider } from "@emotion/react";
 
 interface ProvidersProps {
     readonly children: ReactNode;
