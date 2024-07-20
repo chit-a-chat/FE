@@ -7,7 +7,15 @@ const filesExclude = [/^mock\//, "src/app/router/DevRouter.tsx"];
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react(), tsconfigPaths()],
+    plugins: [
+        react({
+            jsxImportSource: "@emotion/react",
+            babel: {
+                plugins: ["@emotion/babel-plugin"],
+            },
+        }),
+        tsconfigPaths(),
+    ],
     build: {
         rollupOptions: {
             external: [...filesExclude],
