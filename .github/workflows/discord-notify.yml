@@ -1,0 +1,68 @@
+name: Frontend Discord Webhook Notify
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, closed]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Notify Push
+      if: github.event_name == 'push'
+      uses: rjstone/discord-webhook-notify@v1
+      with:
+        severity: info
+        details: |
+          **Frontend Repository: Push Event**
+          Repository: ${{ github.repository }}
+          Ref: ${{ github.ref }}
+          Commit: ${{ github.sha }}
+          Actor: ${{ github.actor }}
+        webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
+    - name: Notify Pull Request
+      if: github.event_name == 'pull_request'
+      uses: rjstone/discord-webhook-notify@v1
+      with:
+        severity: info
+        details: |
+          **Frontend Repository: Pull Request Event**
+          Repository: ${{ github.repository }}
+          Action: ${{ github.event.action }}
+          Pull Request: ${{ github.event.pull_request.html_url }}
+          Actor: ${{ github.actor }}
+        webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+        
+    - name: Notify Failure
+      if: failure()
+      uses: rjstone/discord-webhook-notify@v1
+      with:
+        severity: error
+        details: |
+          **Frontend Repository: Build or tests failed**
+          Repository: ${{ github.repository }}
+          Ref: ${{ github.ref }}
+          Commit: ${{ github.sha }}
+          Actor: ${{ github.actor }}
+        webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
+    - name: Notify Warning
+      if: always() && failure() # Custom condition for warnings if applicable
+      uses: rjstone/discord-webhook-notify@v1
+      with:
+        severity: warn
+        details: |
+          **Frontend Repository: Build or tests warning**
+          Repository: ${{ github.repository }}
+          Ref: ${{ github.ref }}
+          Commit: ${{ github.sha }}
+          Actor: ${{ github.actor }}
+        webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
