@@ -1,13 +1,12 @@
 import { ReactNode } from "react";
 
 import { queryClient } from "@shared/lib";
-import { theme } from "@shared/ui";
 
-import { ThemeProvider } from "@emotion/react";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { RootErrorBoundary } from "./RootErrorBoundary";
+import { CustomThemeProvider } from "./customThemeProvider";
 
 interface ProvidersProps {
     readonly children: ReactNode;
@@ -15,11 +14,11 @@ interface ProvidersProps {
 
 export function Providers({ children }: ProvidersProps) {
     return (
-        <ThemeProvider theme={theme}>
+        <CustomThemeProvider>
             <QueryClientProvider client={queryClient}>
                 <RootErrorBoundary>{children}</RootErrorBoundary>
                 <ReactQueryDevtools initialIsOpen={false} />
             </QueryClientProvider>
-        </ThemeProvider>
+        </CustomThemeProvider>
     );
 }
