@@ -1,0 +1,1 @@
+export { useGetExampleUser } from "./getExampleUser";
