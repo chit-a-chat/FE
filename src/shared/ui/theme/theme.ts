@@ -1,35 +1,40 @@
-import { palette } from "./palette";
-
-// FIXME: themeId 스토어 또는 로컬스토리지 적용
-const themeId = "light";
+import { lightPalette } from "./palette";
 
 const light = {
-    // FIXME: 디자인시스템 구조 결정하여 그에 맞게 적용 필요 2024.07.18. 김하늬
+    // app background color
+    bgColor: "linear-gradient(180deg, rgba(231, 225, 255, 0.4) 0%, rgba(221, 230, 253, 0.4) 83%)",
     button: {
-        primary: {
-            bgColor: palette[themeId].primary[5], // background-color
-            borderColor: "none", // border-color
-            color: palette.common.white, // text-color
-            bgColorHover: palette[themeId].primary[6],
+        // background-color
+        bgColor: {
+            default: {
+                primary: lightPalette.primary[5],
+                secondary: lightPalette.white[0],
+                error: lightPalette.red[4],
+                disable: lightPalette.grey[1],
+            },
+            hover: {
+                primary: lightPalette.primary[6],
+                secondary: lightPalette.primary[0],
+                error: lightPalette.red[5],
+            },
         },
-        secondary: {
-            bgColor: palette[themeId].white[0],
-            borderColor: palette[themeId].primary[3],
-            color: palette[themeId].primary[5],
-            bgColorHover: palette[themeId].primary[0],
+        // border
+        border: {
+            default: {
+                secondary: `1.5px solid ${lightPalette.primary[3]}`,
+            },
+            focus: {
+                secondary: `1.5px solid ${lightPalette.primary[7]}`,
+            },
         },
-        error: {
-            bgColor: palette[themeId].red[5],
-            borderColor: "none",
-            color: palette[themeId].white[0],
-            bgColorHover: palette[themeId].red[6],
-        },
-        disable: {
-            bgColor: palette[themeId].grey[1],
-            borderColor: "none",
-            color: palette[themeId].grey[3],
-            // FIXME: disable variant에 불필요한 hover, focused 등 옵션 제외(타입 정의 필요) 2024.07.20. 김하늬
-            bgColorHover: palette[themeId].grey[1],
+        // text-color
+        color: {
+            default: {
+                primary: lightPalette.common.white,
+                secondary: lightPalette.primary[5],
+                error: lightPalette.white[0],
+                disable: lightPalette.grey[3],
+            },
         },
     },
 };

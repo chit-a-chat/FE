@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 
 import { TbuttonVariant } from "@shared/type";
 
-import { css } from "@emotion/react";
-
-import { theme } from "./theme/theme";
+import { Theme, css } from "@emotion/react";
 
 interface ButtonProps {
     variant?: TbuttonVariant;
@@ -15,26 +13,22 @@ interface ButtonProps {
 }
 
 export function Button({ variant = "primary", label, iconLeft, iconRight, to }: ButtonProps) {
-    // FIXME: themeId 스토어 또는 로컬스토리지 적용
-    const themeId = "light";
+    const btnStyle = (theme: Theme) =>
+        css({
+            padding: "10px 20px",
+            borderRadius: "8px",
+            gap: "6px",
+            cursor: variant === "disable" ? "auto" : "pointer",
+            backgroundColor: theme.button.bgColor.default?.[variant],
+            border: theme.button.border.default?.[variant] ?? "none",
+            color: theme.button.color.default?.[variant],
 
-    const btnStyle = css({
-        padding: "10px 20px",
-        borderRadius: "8px",
-        gap: "6px",
-        cursor: "pointer",
-        backgroundColor: theme[themeId].button[variant].bgColor,
-        border:
-            theme[themeId].button[variant].borderColor === "none"
-                ? "none"
-                : `1px solid ${theme[themeId].button[variant].borderColor}`,
-        color: theme[themeId].button[variant].color,
-        "&:disabled": variant === "disable",
+            "&:disabled": variant === "disable",
 
-        "&:hover": {
-            backgroundColor: theme[themeId].button[variant].bgColorHover,
-        },
-    });
+            "&:hover": {
+                backgroundColor: theme.button.bgColor.hover?.[variant],
+            },
+        });
 
     return (
         <>

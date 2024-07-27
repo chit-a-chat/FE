@@ -1,16 +1,24 @@
-import { TbuttonVariant, TthemeId } from "@shared/type";
+import { TbuttonStatus, TbuttonVariant } from "@shared/type";
 
 import "@emotion/react";
 
 declare module "@emotion/react" {
     export interface Theme {
-        [key in TthemeId]: {
-            button: {
-                [key in TbuttonVariant]: {
-                    bgColor: string;
-                    borderColor: string;
-                    color: string;
-                    bgColorHover: string;
+        bgColor: string;
+        button: {
+            bgColor: {
+                [key in TbuttonStatus]?: {
+                    [key in TbuttonVariant]?: string;
+                };
+            };
+            border: {
+                [key in TbuttonStatus]?: {
+                    [key in TbuttonVariant]?: string;
+                };
+            };
+            color: {
+                [key in TbuttonStatus]?: {
+                    [key in TbuttonVariant]?: string;
                 };
             };
         };
