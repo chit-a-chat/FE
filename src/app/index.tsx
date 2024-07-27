@@ -9,10 +9,10 @@ import { Layout } from "@shared/ui";
 
 import { Global } from "@emotion/react";
 
+import { globalStyle } from "./lib";
 import { MockApiSetter } from "./mock";
 import { Providers } from "./provider";
 import { AppRouter } from "./router";
-import { globalStyle } from "./ui";
 
 /** Mock Api 서버 실행(Service Worker 실행)
  * api 추가하는 곳 {@linkcode apiHandlers}
