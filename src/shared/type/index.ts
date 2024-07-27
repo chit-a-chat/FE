@@ -1,1 +1,1 @@
-export { type TthemeId, type TbuttonVariant } from "./themeType";
+export { type TthemeId, type TbuttonStatus, type TbuttonVariant } from "./themeType";
