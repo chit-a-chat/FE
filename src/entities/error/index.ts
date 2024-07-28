@@ -1,1 +1,1 @@
-export { ComponentErrorBoundary } from "./FetchErrorProvider";
+export { FetchErrorBoundary } from "./FetchErrorProvider";

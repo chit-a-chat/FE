@@ -5,16 +5,19 @@ export type CustomErrorProps = {
     errorCode?: ErrorCode;
     statusCode?: StatusCode;
     message: string;
+    stack?: string;
 };
 
 export class CustomError extends Error {
     public errorCode?;
     public statusCode?;
     public name;
-    constructor({ name, errorCode, statusCode, message }: CustomErrorProps) {
+    public stack?;
+    constructor({ name, errorCode, statusCode, message, stack }: CustomErrorProps) {
         super(message);
         this.name = name;
         this.errorCode = errorCode;
         this.statusCode = statusCode;
+        this.stack = stack;
     }
 }
