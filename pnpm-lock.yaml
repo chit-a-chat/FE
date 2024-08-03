@@ -10,6 +10,9 @@ dependencies:
   '@lukemorales/query-key-factory':
     specifier: ^1.3.4
     version: 1.3.4(@tanstack/query-core@5.51.15)(@tanstack/react-query@5.51.15)
+  '@tabler/icons-react':
+    specifier: ^3.11.0
+    version: 3.11.0(react@18.3.1)
   '@tanstack/react-query':
     specifier: ^5.51.15
     version: 5.51.15(react@18.3.1)
@@ -1021,6 +1024,19 @@ packages:
       vscode-languageserver-textdocument: 1.0.12
       vscode-languageserver-types: 3.17.5
     dev: true
+    
+  /@tabler/icons-react@3.11.0(react@18.3.1):
+    resolution: {integrity: sha512-xHNBi9mns1slvqos+7LkP3ube4CjWrANMbxMaorzwzO9J/+y1sAEG/sN8CV8FmtpYW/9/gDR+OWCjjLLg0RmAw==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      '@tabler/icons': 3.11.0
+      react: 18.3.1
+    dev: false
+
+  /@tabler/icons@3.11.0:
+    resolution: {integrity: sha512-/vZinJNvCYhdAB+RUsyCpanSPuOEKHHIZi4Uu0Bw7ilewHnQhCWUPrT704uHCRli2ROl7spADPmWzAqOganA5A==}
+    dev: false
 
   /@tanstack/query-core@5.51.15:
     resolution: {integrity: sha512-xyobHDJ0yhPE3+UkSQ2/4X1fLSg7ICJI5J1JyU9yf7F3deQfEwSImCDrB1WSRrauJkMtXW7YIEcC0oA6ZZWt5A==}
