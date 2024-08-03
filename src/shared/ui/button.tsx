@@ -10,14 +10,23 @@ interface ButtonProps {
     iconLeft?: "check";
     iconRight?: "check";
     to?: string;
+    // TODO: 버튼 사이즈 'large', 'small'인 경우 추가
+    size?: "medium";
 }
 
-export function Button({ variant = "primary", label, iconLeft, iconRight, to }: ButtonProps) {
+export function Button({
+    variant = "primary",
+    label,
+    iconLeft,
+    iconRight,
+    to,
+    size = "medium",
+}: ButtonProps) {
     const btnStyle = (theme: Theme) =>
         css({
-            padding: "10px 20px",
-            borderRadius: "8px",
-            gap: "6px",
+            padding: theme.button.padding[size],
+            borderRadius: theme.button.radius[size],
+            gap: theme.button.gap[size],
             cursor: variant === "disable" ? "auto" : "pointer",
             backgroundColor: theme.button.bgColor.default?.[variant],
             // border를 안쪽으로 주기 위해 boxShadow 사용함
@@ -39,9 +48,7 @@ export function Button({ variant = "primary", label, iconLeft, iconRight, to }: 
                 top: variant === "primary" || variant === "error" ? "-3px" : "0px",
                 width: `calc(100% + ${variant === "primary" || variant === "error" ? 4 : 0}px)`,
                 height: `calc(100% + ${variant === "primary" || variant === "error" ? 6 : 0}px)`,
-                padding: "3px 2px",
-                borderRadius: "8px",
-                gap: "6px",
+                borderRadius: theme.button.radius[size],
             },
 
             "&:active": {
