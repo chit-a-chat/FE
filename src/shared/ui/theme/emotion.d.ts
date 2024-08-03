@@ -21,6 +21,15 @@ declare module "@emotion/react" {
                     [key in TbuttonVariant]?: string;
                 };
             };
+            padding: {
+                medium: string;
+            };
+            radius: {
+                medium: string;
+            };
+            gap: {
+                medium: string;
+            };
         };
     }
 }
