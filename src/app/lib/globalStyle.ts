@@ -22,6 +22,7 @@ export const globalStyle = css`
     body,
     div,
     span,
+    button,
     applet,
     object,
     iframe,
