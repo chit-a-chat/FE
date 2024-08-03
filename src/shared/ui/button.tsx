@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
 
-import { TbuttonVariant } from "@shared/type";
+import { TIcon, TbuttonVariant } from "@shared/type";
 
 import { Theme, css } from "@emotion/react";
+
+import { Icons } from ".";
 
 interface ButtonProps {
     variant?: TbuttonVariant;
     label: string;
-    iconLeft?: "check";
-    iconRight?: "check";
+    iconLeft?: TIcon;
+    iconRight?: TIcon;
     to?: string;
     // TODO: 버튼 사이즈 'large', 'small'인 경우 추가
     size?: "medium";
 }
 
+// TODO: typography theme 적용 2024.08.03. 김하늬
 export function Button({
     variant = "primary",
     label,
@@ -33,6 +36,8 @@ export function Button({
             boxShadow: theme.button.border.default?.[variant] ?? "none",
             color: theme.button.color.default?.[variant],
             position: "relative",
+            display: "flex",
+            alignItems: "center",
 
             "&:disabled": variant === "disable",
 
@@ -62,10 +67,9 @@ export function Button({
         <>
             {to && <Link to={to} css={btnStyle} />}
             <button css={btnStyle}>
-                {/* TODO: icon 삽입 2024.07.20. 김하늬 */}
-                {iconLeft && "iconLeft"}
+                {iconLeft && <Icons type={iconLeft} size={size === "medium" ? "L" : "M"} />}
                 {label}
-                {iconRight && "iconRight"}
+                {iconRight && <Icons type={iconRight} size={size === "medium" ? "L" : "M"} />}
             </button>
         </>
     );
