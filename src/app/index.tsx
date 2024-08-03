@@ -6,9 +6,9 @@ import { changeAxiosConfig } from "@shared/lib/axios/changeAxiosConfig";
 
 import { Global } from "@emotion/react";
 
+import { globalStyle } from "./lib";
 import { Providers } from "./provider";
 import { AppRouter } from "./router";
-import { globalStyle } from "./ui";
 
 /** axios 설정 변경 */
 changeAxiosConfig();

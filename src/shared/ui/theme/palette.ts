@@ -1,4 +1,4 @@
-export const palette = {
+export const lightPalette = {
     primary: {
         0: "#F6F4FF",
         1: "#E7E1FF",
@@ -51,5 +51,9 @@ export const palette = {
     },
     white: {
         0: "#FDFDFD",
+    },
+    common: {
+        black: "#000000",
+        white: "#FFFFFF",
     },
 };
