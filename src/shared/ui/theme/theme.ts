@@ -21,10 +21,13 @@ const light = {
         // border
         border: {
             default: {
-                secondary: `1.5px solid ${lightPalette.primary[3]}`,
+                // border를 안쪽으로 주기 위해 boxShadow 사용함
+                secondary: `0 0 0 1.5px ${lightPalette.primary[3]} inset`,
             },
             focus: {
+                primary: `1px solid ${lightPalette.primary[6]}`,
                 secondary: `1.5px solid ${lightPalette.primary[7]}`,
+                error: `1px solid ${lightPalette.red[6]}`,
             },
         },
         // text-color
