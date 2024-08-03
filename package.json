@@ -11,7 +11,7 @@
         "prepare": "husky"
     },
     "lint-staged": {
-        "src/**/*.{js,jsx,ts,tsx}": [
+        "src/**/*.{js,jsx,ts,tsx,json}": [
             "eslint --fix",
             "prettier --write",
             "bash -c tsc --noEmit"
