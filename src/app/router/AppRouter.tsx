@@ -1,5 +1,6 @@
 import { Navigate, RouteObject, RouterProvider, createBrowserRouter } from "react-router-dom";
 
+import { RouterErrorBoundary } from "@app/provider/RouterErrorBoundary";
 import { HomePage } from "@pages";
 
 /** DEV환경에서 추가되는 router */
@@ -15,6 +16,7 @@ export function AppRouter() {
         {
             path: "/",
             element: <HomePage />,
+            errorElement: <RouterErrorBoundary />,
         },
         { path: "*", element: <Navigate to="/" replace /> },
     ]);
