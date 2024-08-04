@@ -3,7 +3,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 import react from "@vitejs/plugin-react";
 
-const filesExclude = [/^mock\//];
+const filesExclude = [/^mock\//, "src/app/router/DevRouter.tsx"];
 
 // https://vitejs.dev/config/
 export default defineConfig({
