@@ -1,9 +1,8 @@
 import { ReactNode } from "react";
 
 import { queryClient } from "@shared/lib";
-import { theme } from "@shared/ui";
 
-import { useThemeId } from "@app/lib";
+import { useTheme } from "@app/lib";
 import { ThemeProvider } from "@emotion/react";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -13,10 +12,10 @@ interface ProvidersProps {
 }
 
 export function Providers({ children }: ProvidersProps) {
-    const [themeId] = useThemeId();
+    const { theme } = useTheme();
 
     return (
-        <ThemeProvider theme={theme[themeId]}>
+        <ThemeProvider theme={theme}>
             <QueryClientProvider client={queryClient}>
                 {children}
                 <ReactQueryDevtools initialIsOpen={false} />
