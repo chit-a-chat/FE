@@ -1,10 +1,10 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-import { TthemeId } from "@shared/type";
+import { theme } from "@shared/ui";
 
-export function useThemeId(): TthemeId[] {
+export function useTheme() {
     const getInitialThemeId = useCallback(() => {
-        let themeId = window.localStorage.getItem("chit_a_chat_theme") as TthemeId | null;
+        let themeId = window.localStorage.getItem("chit_a_chat_theme") as keyof typeof theme | null;
         const INVALID_THEME = themeId !== "light";
 
         if (!themeId || INVALID_THEME) {
@@ -13,9 +13,21 @@ export function useThemeId(): TthemeId[] {
         return themeId;
     }, []);
 
-    const [themeId] = useState(getInitialThemeId());
+    const [themeId, setThemeId] = useState(getInitialThemeId());
 
-    return [themeId];
+    const toggleTheme = useCallback(() => {
+        setThemeId("light");
+    }, []);
+
+    useEffect(() => {
+        window.localStorage.setItem("chit_a_chat_theme", themeId);
+    }, [themeId]);
+
+    return {
+        theme: theme[themeId],
+        themeId,
+        toggleTheme,
+    };
 
     // const getInitialThemeId = useCallback(() => {
     //     let themeId = window.localStorage.getItem("app_theme") as TthemeId | null;
