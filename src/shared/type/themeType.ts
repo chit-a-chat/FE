@@ -1,5 +1,3 @@
-export type TthemeId = "light";
-
 // button types
 export type TbuttonStatus = "default" | "focus" | "hover" | "hoverFocus" | "active";
 export type TbuttonVariant = "primary" | "secondary" | "error" | "disable";
