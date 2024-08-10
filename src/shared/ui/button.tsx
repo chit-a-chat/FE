@@ -27,14 +27,14 @@ export function Button({
 }: ButtonProps) {
     const btnStyle = (theme: Theme) =>
         css({
-            padding: theme.button.padding[size],
-            borderRadius: theme.button.radius[size],
-            gap: theme.button.gap[size],
+            padding: theme.button.shape.padding[size],
+            borderRadius: theme.button.shape.radius[size],
+            gap: theme.button.shape.gap[size],
             cursor: variant === "disable" ? "auto" : "pointer",
-            backgroundColor: theme.button.bgColor.default?.[variant],
+            backgroundColor: theme.button.color.background.default?.[variant],
             // border를 안쪽으로 주기 위해 boxShadow 사용함
-            boxShadow: theme.button.border.default?.[variant] ?? "none",
-            color: theme.button.color.default?.[variant],
+            boxShadow: theme.button.color.border.default?.[variant] ?? "none",
+            color: theme.button.color.text.default?.[variant],
             position: "relative",
             display: "flex",
             alignItems: "center",
@@ -42,24 +42,24 @@ export function Button({
             "&:disabled": variant === "disable",
 
             "&:hover": {
-                backgroundColor: theme.button.bgColor.hover?.[variant],
+                backgroundColor: theme.button.color.background.hover?.[variant],
             },
 
             "&:focus:not(:active)::after": {
                 content: "''",
-                border: theme.button.border.focus?.[variant],
+                border: theme.button.color.border.focus?.[variant],
                 position: "absolute",
                 left: variant === "primary" || variant === "error" ? "-2px" : "0px",
                 top: variant === "primary" || variant === "error" ? "-3px" : "0px",
                 width: `calc(100% + ${variant === "primary" || variant === "error" ? 4 : 0}px)`,
                 height: `calc(100% + ${variant === "primary" || variant === "error" ? 6 : 0}px)`,
-                borderRadius: theme.button.radius[size],
+                borderRadius: theme.button.shape.radius[size],
             },
 
             "&:active": {
-                backgroundColor: theme.button.bgColor.default?.[variant],
-                boxShadow: theme.button.border.default?.[variant] ?? "none",
-                color: theme.button.color.default?.[variant],
+                backgroundColor: theme.button.color.background.default?.[variant],
+                boxShadow: theme.button.color.border.default?.[variant] ?? "none",
+                color: theme.button.color.text.default?.[variant],
             },
         });
 
