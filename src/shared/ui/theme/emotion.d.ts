@@ -2,34 +2,31 @@ import { TbuttonStatus, TbuttonVariant } from "@shared/type";
 
 import "@emotion/react";
 
+import { TButtonShape, TSpacing } from "./theme";
+
 declare module "@emotion/react" {
     export interface Theme {
         bgColor: string;
         button: {
-            bgColor: {
-                [key in TbuttonStatus]?: {
-                    [key in TbuttonVariant]?: string;
-                };
-            };
-            border: {
-                [key in TbuttonStatus]?: {
-                    [key in TbuttonVariant]?: string;
-                };
-            };
+            shape: TButtonShape;
             color: {
-                [key in TbuttonStatus]?: {
-                    [key in TbuttonVariant]?: string;
+                background: {
+                    [key in TbuttonStatus]?: {
+                        [key in TbuttonVariant]?: string;
+                    };
                 };
-            };
-            padding: {
-                medium: string;
-            };
-            radius: {
-                medium: string;
-            };
-            gap: {
-                medium: string;
+                border: {
+                    [key in TbuttonStatus]?: {
+                        [key in TbuttonVariant]?: string;
+                    };
+                };
+                text: {
+                    [key in TbuttonStatus]?: {
+                        [key in TbuttonVariant]?: string;
+                    };
+                };
             };
         };
+        spacing: TSpacing;
     }
 }
