@@ -36,7 +36,15 @@
         },
 
         /* Emotion */
-        "types": ["@emotion/react/types/css-prop"]
+        "types": ["@emotion/react/types/css-prop"],
+        /* styled 자동완성 media 키워드 추가 */
+        /* media.XXXXX로 사용할 경우 자동완성 잘 되도록 보완 필요*/
+        "plugins": [
+            {
+                "name": "@styled/typescript-styled-plugin",
+                "tags": ["media", "css", "styled"]
+            }
+        ]
     },
     "include": ["src"]
 }
