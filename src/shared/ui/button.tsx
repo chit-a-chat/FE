@@ -39,8 +39,6 @@ export function Button({
             display: "flex",
             alignItems: "center",
 
-            "&:disabled": variant === "disable",
-
             "&:hover": {
                 backgroundColor: theme.button.color.background.hover?.[variant],
             },
@@ -67,9 +65,9 @@ export function Button({
         <>
             {to && <Link to={to} css={btnStyle} />}
             <button css={btnStyle}>
-                {iconLeft && <Icons type={iconLeft} size={size === "medium" ? "L" : "M"} />}
+                {iconLeft && <Icons type={iconLeft} size={size === "medium" ? "l" : "m"} />}
                 {label}
-                {iconRight && <Icons type={iconRight} size={size === "medium" ? "L" : "M"} />}
+                {iconRight && <Icons type={iconRight} size={size === "medium" ? "l" : "m"} />}
             </button>
         </>
     );
