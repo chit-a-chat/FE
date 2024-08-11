@@ -25,3 +25,5 @@ dist-ssr
 
 # 설정, 환경 파일
 *.env
+
+*storybook.log
