@@ -6,12 +6,19 @@ export const globalStyle = css`
     *::after {
         box-sizing: border-box;
     }
-    body {
-        font-family: Arial, Helvetica, sans-serif;
+    html {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font-family:
+            Roboto,
+            IBM Plex Sans KR,
+            sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        vertical-align: baseline;
     }
-    html,
     body,
     div,
     span,
