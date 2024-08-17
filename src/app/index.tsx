@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client";
 import { SetupWorker } from "msw/browser";
 
 import { changeAxiosConfig } from "@shared/lib/axios/changeAxiosConfig";
-import { GridContainer } from "@shared/ui";
+import { Layout } from "@shared/ui";
 
 import { Global } from "@emotion/react";
 
@@ -34,9 +34,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         {import.meta.env.DEV && worker && <MockApiSetter worker={worker} />}
         <Providers>
             <Global styles={globalStyle} />
-            <GridContainer>
+            <Layout>
                 <AppRouter />
-            </GridContainer>
+            </Layout>
         </Providers>
     </React.StrictMode>
 );
