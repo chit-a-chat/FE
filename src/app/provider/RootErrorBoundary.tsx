@@ -1,6 +1,6 @@
 import { Component, ReactNode } from "react";
 
-import { RootErrorModal } from "@widgets/error/ui/RootErrorModal";
+import { RootErrorModal } from "@widgets/error";
 
 import { ErrorBoundaryState } from "@entities/error";
 
