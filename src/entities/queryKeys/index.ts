@@ -1,7 +1,7 @@
 import { inferQueryKeyStore, mergeQueryKeys } from "@lukemorales/query-key-factory";
 
-import { exampleQueryKeys } from "./example";
-import { exampleUserQueryKey } from "./exampleUser";
+import { exampleQueryKeys } from "../example";
+import { exampleUserQueryKey } from "../exampleUser";
 
 /** 도메인별 쿼리키가 합쳐진 변수
  * 현재 관리되고 예시 키 {@linkcode exampleUserQueryKey}와 {@linkcode exampleQueryKeys}
