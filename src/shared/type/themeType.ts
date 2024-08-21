@@ -1,6 +1,6 @@
 // button types
-export type TbuttonStatus = "default" | "focus" | "hover" | "hoverFocus" | "active";
-export type TbuttonVariant = "primary" | "secondary" | "error" | "disable";
+export type TButtonStatus = "default" | "focus" | "hover" | "hoverFocus" | "active";
+export type TButtonVariant = "primary" | "secondary" | "error" | "disable";
 
 // icons types
 export type TIcon =
