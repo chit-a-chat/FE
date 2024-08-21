@@ -4,7 +4,7 @@ import { TIcon, TbuttonVariant } from "@shared/type";
 
 import { Theme, css } from "@emotion/react";
 
-import { Icons } from ".";
+import { Icons } from "./icons";
 
 interface ButtonProps {
     variant?: TbuttonVariant;
