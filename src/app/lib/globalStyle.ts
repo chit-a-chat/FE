@@ -1,3 +1,5 @@
+import i18n from "@features/i18n";
+
 import { css } from "@emotion/react";
 
 export const globalStyle = css`
@@ -11,10 +13,7 @@ export const globalStyle = css`
         padding: 0;
         border: 0;
         font-size: 100%;
-        font-family:
-            Roboto,
-            IBM Plex Sans KR,
-            sans-serif;
+        font-family: ${i18n.language === "ko" ? "IBM Plex Sans KR" : "Roboto"}, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         vertical-align: baseline;
