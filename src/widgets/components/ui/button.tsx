@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
-import { TIcon, TbuttonVariant } from "@shared/type";
+import { TButtonVariant, TIcon } from "@shared/type";
 
 import { Theme, css } from "@emotion/react";
 
 import { Icons } from "./icons";
 
 interface ButtonProps {
-    variant?: TbuttonVariant;
+    variant?: TButtonVariant;
     label: string;
     iconLeft?: TIcon;
     iconRight?: TIcon;

@@ -1,4 +1,4 @@
-import { TbuttonStatus, TbuttonVariant } from "@shared/type";
+import { TButtonStatus, TButtonVariant } from "@shared/type";
 
 import "@emotion/react";
 
@@ -14,18 +14,18 @@ declare module "@emotion/react" {
             shape: TButtonShape;
             color: {
                 background: {
-                    [key in TbuttonStatus]?: {
-                        [key in TbuttonVariant]?: string;
+                    [key in TButtonStatus]?: {
+                        [key in TButtonVariant]?: string;
                     };
                 };
                 border: {
-                    [key in TbuttonStatus]?: {
-                        [key in TbuttonVariant]?: string;
+                    [key in TButtonStatus]?: {
+                        [key in TButtonVariant]?: string;
                     };
                 };
                 text: {
-                    [key in TbuttonStatus]?: {
-                        [key in TbuttonVariant]?: string;
+                    [key in TButtonStatus]?: {
+                        [key in TButtonVariant]?: string;
                     };
                 };
             };
