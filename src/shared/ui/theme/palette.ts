@@ -1,3 +1,4 @@
+export type TLightPalette = typeof lightPalette;
 export const lightPalette = {
     primary: {
         0: "#F6F4FF",

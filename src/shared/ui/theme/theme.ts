@@ -77,6 +77,7 @@ const lightButtonColor = {
 };
 
 const light = {
+    palette: lightPalette,
     // app background color
     bgColor: "linear-gradient(180deg, rgba(231, 225, 255, 0.4) 0%, rgba(221, 230, 253, 0.4) 83%)",
     button: {
