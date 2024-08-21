@@ -1,3 +1,5 @@
+import i18n from "@features/i18n";
+
 import { lightPalette } from "./palette";
 
 /**
@@ -16,6 +18,315 @@ const spacing = {
     "3xs": "6px",
     "4xs": "4px",
     "5xs": "2px",
+};
+
+// Typography 한국어
+const typoKo = {
+    "display/superLarge": {
+        fontSize: "87.4px",
+        lineHeight: "132px",
+        letterSpacing: "0px",
+        fontWeight: 700,
+    },
+    "display/large": {
+        fontSize: "57px",
+        lineHeight: "86px",
+        letterSpacing: "0px",
+        fontWeight: 700,
+    },
+    "display/medium": {
+        fontSize: "51.3px",
+        lineHeight: "78px",
+        letterSpacing: "0px",
+        fontWeight: 500,
+    },
+    "display/small": {
+        fontSize: "39.9px",
+        lineHeight: "60px",
+        letterSpacing: "0px",
+        fontWeight: 400,
+    },
+    "display/notificationTitle": {
+        fontSize: "21px",
+        lineHeight: "32px",
+        letterSpacing: "0px",
+        fontWeight: 500,
+    },
+    "h1/bold": {
+        fontSize: "34.2px",
+        lineHeight: "52px",
+        letterSpacing: "0px",
+        fontWeight: 700,
+    },
+    "h2/medium": {
+        fontSize: "28px",
+        lineHeight: "42px",
+        letterSpacing: "0px",
+        fontWeight: 500,
+    },
+    "h3/medium": {
+        fontSize: "24px",
+        lineHeight: "36px",
+        letterSpacing: "0px",
+        fontWeight: 500,
+    },
+    "h4/regular": {
+        fontSize: "21px",
+        lineHeight: "32px",
+        letterSpacing: "0px",
+        fontWeight: 400,
+    },
+    "h5/bold": {
+        fontSize: "18px",
+        lineHeight: "24px",
+        letterSpacing: "0px",
+        fontWeight: 700,
+    },
+    "h6/bold": {
+        fontSize: "16px",
+        lineHeight: "24px",
+        letterSpacing: "0px",
+        fontWeight: 700,
+    },
+    "body/bold": {
+        fontSize: "17.1px",
+        lineHeight: "28px",
+        letterSpacing: "0.25px",
+        fontWeight: 700,
+    },
+    "body/medium": {
+        fontSize: "17.1px",
+        lineHeight: "28px",
+        letterSpacing: "0.25px",
+        fontWeight: 500,
+    },
+    "body/regular": {
+        fontSize: "17.1px",
+        lineHeight: "28px",
+        letterSpacing: "0.25px",
+        fontWeight: 400,
+    },
+    "label/bold": {
+        fontSize: "13.3px",
+        lineHeight: "20px",
+        letterSpacing: "0.1px",
+        fontWeight: 700,
+    },
+    "label/medium": {
+        fontSize: "13.3px",
+        lineHeight: "20px",
+        letterSpacing: "0.1px",
+        fontWeight: 500,
+    },
+    "label/regular": {
+        fontSize: "13.3px",
+        lineHeight: "20px",
+        letterSpacing: "0.1px",
+        fontWeight: 400,
+    },
+    "buttonLarge/medium": {
+        fontSize: "24px",
+        lineHeight: "28px",
+        letterSpacing: "0.5px",
+        fontWeight: 500,
+    },
+    "buttonMedium/medium": {
+        fontSize: "16px",
+        lineHeight: "24px",
+        letterSpacing: "0.5px",
+        fontWeight: 500,
+    },
+    "buttonSmall/medium": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0.5px",
+        fontWeight: 500,
+    },
+    "linkLarge/regular": {
+        fontSize: "26.65px",
+        lineHeight: "38.5px",
+        letterSpacing: "0.25px",
+        fontWeight: 400,
+    },
+    "linkMedium/regular": {
+        fontSize: "17.1px",
+        lineHeight: "28px",
+        letterSpacing: "0.25px",
+        fontWeight: 400,
+    },
+    "tag/bold": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0px",
+        fontWeight: 700,
+    },
+    "tag/medium": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0px",
+        fontWeight: 500,
+    },
+    "tag/regular": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0px",
+        fontWeight: 400,
+    },
+};
+
+// Typography 영어
+const typoEn = {
+    "display/superLarge": {
+        fontSize: "76px",
+        lineHeight: "114px",
+        letterSpacing: "1px",
+        fontWeight: 700,
+    },
+    "display/large": {
+        fontSize: "57px",
+        lineHeight: "86px",
+        letterSpacing: "1px",
+        fontWeight: 700,
+    },
+    "display/medium": {
+        fontSize: "50.52px",
+        lineHeight: "76px",
+        letterSpacing: "1px",
+        fontWeight: 400,
+    },
+    "display/small": {
+        fontSize: "36px",
+        lineHeight: "54px",
+        letterSpacing: "1px",
+        fontWeight: 400,
+    },
+    "display/notificationTitle": {
+        fontSize: "21px",
+        lineHeight: "32px",
+        letterSpacing: "0px",
+        fontWeight: 500,
+    },
+    "h1/bold": {
+        fontSize: "38px",
+        lineHeight: "57px",
+        letterSpacing: "1px",
+        fontWeight: 700,
+    },
+    "h2/medium": {
+        fontSize: "28px",
+        lineHeight: "40px",
+        letterSpacing: "1px",
+        fontWeight: 500,
+    },
+    "h3/medium": {
+        fontSize: "24px",
+        lineHeight: "36px",
+        letterSpacing: "1px",
+        fontWeight: 500,
+    },
+    "h4/regular": {
+        fontSize: "21px",
+        lineHeight: "32px",
+        letterSpacing: "1px",
+        fontWeight: 400,
+    },
+    "h5/bold": {
+        fontSize: "18px",
+        lineHeight: "28px",
+        letterSpacing: "1px",
+        fontWeight: 700,
+    },
+    "h6/bold": {
+        fontSize: "16px",
+        lineHeight: "24px",
+        letterSpacing: "1px",
+        fontWeight: 700,
+    },
+    "body/bold": {
+        fontSize: "16px",
+        lineHeight: "24px",
+        letterSpacing: "0.25px",
+        fontWeight: 700,
+    },
+    "body/medium": {
+        fontSize: "16px",
+        lineHeight: "24px",
+        letterSpacing: "0.25px",
+        fontWeight: 500,
+    },
+    "body/regular": {
+        fontSize: "16px",
+        lineHeight: "24px",
+        letterSpacing: "0.25px",
+        fontWeight: 400,
+    },
+    "label/bold": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0.1px",
+        fontWeight: 700,
+    },
+    "label/medium": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0.1px",
+        fontWeight: 500,
+    },
+    "label/regular": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0.1px",
+        fontWeight: 400,
+    },
+    "buttonLarge/medium": {
+        fontSize: "24px",
+        lineHeight: "36px",
+        letterSpacing: "0.5px",
+        fontWeight: 500,
+    },
+    "buttonMedium/medium": {
+        fontSize: "16px",
+        lineHeight: "24px",
+        letterSpacing: "0.5px",
+        fontWeight: 500,
+    },
+    "buttonSmall/medium": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0.5px",
+        fontWeight: 500,
+    },
+    "linkLarge/regular": {
+        fontSize: "24px",
+        lineHeight: "36px",
+        letterSpacing: "0.25px",
+        fontWeight: 400,
+    },
+    "linkMedium/regular": {
+        fontSize: "16px",
+        lineHeight: "24px",
+        letterSpacing: "0.25px",
+        fontWeight: 400,
+    },
+    //
+    "tag/bold": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0px",
+        fontWeight: 700,
+    },
+    "tag/medium": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0px",
+        fontWeight: 500,
+    },
+    "tag/regular": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0px",
+        fontWeight: 400,
+    },
 };
 
 const buttonShape = {
@@ -85,6 +396,7 @@ const light = {
         color: lightButtonColor,
     },
     spacing,
+    typo: i18n.language === "ko" ? typoKo : typoEn,
 };
 
 export type TSpacing = typeof spacing;
