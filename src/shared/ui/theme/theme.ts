@@ -43,7 +43,7 @@ const lightButtonColor = {
     background: {
         default: {
             primary: lightPalette.primary[5],
-            secondary: lightPalette.white[0],
+            secondary: lightPalette.common.white,
             error: lightPalette.red[4],
             disable: lightPalette.grey[1],
         },
@@ -70,7 +70,7 @@ const lightButtonColor = {
         default: {
             primary: lightPalette.common.white,
             secondary: lightPalette.primary[5],
-            error: lightPalette.white[0],
+            error: lightPalette.common.white,
             disable: lightPalette.grey[3],
         },
     },
