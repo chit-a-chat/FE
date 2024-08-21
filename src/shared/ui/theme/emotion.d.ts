@@ -1,4 +1,4 @@
-import { TButtonStatus, TButtonVariant } from "@shared/type";
+import { TButtonStatus, TButtonVariant, TTypoVariant } from "@shared/type";
 
 import "@emotion/react";
 
@@ -31,5 +31,13 @@ declare module "@emotion/react" {
             };
         };
         spacing: TSpacing;
+        typo: {
+            [key in TTypoVariant]: {
+                fontSize: string;
+                lineHeight: string;
+                letterSpacing: string;
+                fontWeight: number;
+            };
+        };
     }
 }
