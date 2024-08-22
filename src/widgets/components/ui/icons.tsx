@@ -1,17 +1,22 @@
 import { TIcon } from "@shared/type";
 
+import { useTheme } from "@emotion/react";
 import {
     IconArrowLeft,
     IconArrowRight,
     IconBell,
+    IconBellFilled,
     IconBrandBadoo,
     IconCheck,
     IconChevronDown,
     IconChevronUp,
     IconHeartHandshake,
+    IconInfoCircle,
     IconMapPin,
+    IconPlus,
     IconSearch,
     IconSettings,
+    IconSparkles,
     IconTriangleInvertedFilled,
     IconUser,
     IconX,
@@ -30,27 +35,33 @@ type TIconSize = keyof typeof SIZE_TO_PIXEL;
 interface CustomIconsProps {
     type: TIcon;
     size?: TIconSize;
+    color?: string;
 }
 
 const icons = {
     "arrow-left": IconArrowLeft,
     "arrow-right": IconArrowRight,
     bell: IconBell,
+    "bell-filled": IconBellFilled,
     check: IconCheck,
     "chevron-down": IconChevronDown,
     "chevron-down-fill": IconTriangleInvertedFilled,
     "chevron-up": IconChevronUp,
     heart: IconHeartHandshake,
     "heart-smily": IconBrandBadoo,
+    info: IconInfoCircle,
     location: IconMapPin,
+    plus: IconPlus,
     search: IconSearch,
     setting: IconSettings,
+    twinkle: IconSparkles,
     user: IconUser,
     x: IconX,
 };
 
-// TODO: color prop 받아서 적용, size prop 반복 제거. 2024.08.03. 김하늬
-export function Icons({ type, size = "m" }: CustomIconsProps) {
+export function Icons({ type, size = "m", color }: CustomIconsProps) {
+    const theme = useTheme();
+
     const NewIcon = icons[type];
-    return <NewIcon size={SIZE_TO_PIXEL[size]} />;
+    return <NewIcon size={SIZE_TO_PIXEL[size]} color={color ?? theme.palette.common.black} />;
 }
