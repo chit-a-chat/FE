@@ -308,7 +308,6 @@ const typoEn = {
         letterSpacing: "0.25px",
         fontWeight: 400,
     },
-    //
     "tag/bold": {
         fontSize: "14px",
         lineHeight: "21px",
@@ -387,6 +386,11 @@ const lightButtonColor = {
     },
 };
 
+const lightTypoColor = {
+    // TODO: 기본 타이포 색상 확인되면 수정 2024.08.22. 김하늬
+    defaultColor: lightPalette.common.black,
+};
+
 const light = {
     palette: lightPalette,
     // app background color
@@ -396,7 +400,10 @@ const light = {
         color: lightButtonColor,
     },
     spacing,
-    typo: i18n.language === "ko" ? typoKo : typoEn,
+    typo:
+        i18n.language === "ko"
+            ? { ...typoKo, ...lightTypoColor }
+            : { ...typoEn, ...lightTypoColor },
 };
 
 export type TSpacing = typeof spacing;
