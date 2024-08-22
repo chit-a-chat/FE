@@ -7,9 +7,7 @@ import { SetupWorker } from "msw/browser";
 import { changeAxiosConfig } from "@shared/lib/axios/changeAxiosConfig";
 import { Layout } from "@shared/ui";
 
-import { Global } from "@emotion/react";
-
-import { globalStyle } from "./lib";
+import { GlobalStyle } from "./lib/globalStyle";
 import { MockApiSetter } from "./mock";
 import { Providers } from "./provider";
 import { AppRouter } from "./router";
@@ -33,7 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         {/* 개발 툴 */}
         {import.meta.env.DEV && worker && <MockApiSetter worker={worker} />}
         <Providers>
-            <Global styles={globalStyle} />
+            <GlobalStyle />
             <Layout>
                 <AppRouter />
             </Layout>

@@ -9,6 +9,10 @@ export const Typo = styled.p<{ variant?: TTypoVariant; color?: string }>`
         line-height: ${theme.typo[variant].lineHeight};
         letter-spacing: ${theme.typo[variant].letterSpacing};
         font-weight: ${theme.typo[variant].fontWeight};
-        color: ${color ?? theme.typo.defaultColor};
+        color: ${color
+            ? color
+            : variant.startsWith("link")
+              ? theme.typo.linkColor
+              : theme.typo.defaultColor};
     `}
 `;
