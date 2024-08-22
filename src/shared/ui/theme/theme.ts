@@ -20,6 +20,11 @@ const spacing = {
     "5xs": "2px",
 };
 
+// Typography font-family
+const fontFamily = {
+    fontFamily: i18n.language === "ko" ? "'IBM Plex Sans KR', sans-serif" : "'Roboto', sans-serif",
+};
+
 // Typography 한국어
 const typoKo = {
     "display/superLarge": {
@@ -389,6 +394,7 @@ const lightButtonColor = {
 const lightTypoColor = {
     // TODO: 기본 타이포 색상 확인되면 수정 2024.08.22. 김하늬
     defaultColor: lightPalette.common.black,
+    linkColor: lightPalette.primary[6],
 };
 
 const light = {
@@ -402,8 +408,8 @@ const light = {
     spacing,
     typo:
         i18n.language === "ko"
-            ? { ...typoKo, ...lightTypoColor }
-            : { ...typoEn, ...lightTypoColor },
+            ? { ...typoKo, ...lightTypoColor, ...fontFamily }
+            : { ...typoEn, ...lightTypoColor, ...fontFamily },
 };
 
 export type TSpacing = typeof spacing;

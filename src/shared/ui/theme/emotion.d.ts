@@ -38,6 +38,6 @@ declare module "@emotion/react" {
                 letterSpacing: string;
                 fontWeight: number;
             };
-        } & { defaultColor: string };
+        } & { defaultColor: string; linkColor: string; fontFamily: string };
     }
 }
