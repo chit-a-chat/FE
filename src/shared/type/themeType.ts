@@ -50,3 +50,6 @@ export type TTypoVariant =
     | "tag/bold"
     | "tag/medium"
     | "tag/regular";
+
+// push notification types
+export type TPushNotification = "default" | "error" | "success" | "info";
