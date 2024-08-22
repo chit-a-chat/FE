@@ -397,6 +397,15 @@ const lightTypoColor = {
     linkColor: lightPalette.primary[6],
 };
 
+const lightPushNotificationColor = {
+    default: lightPalette.primary[5],
+    error: lightPalette.red[6],
+    success: lightPalette.green[5],
+    info: lightPalette.blue[5],
+    title: lightPalette.grey[8],
+    content: lightPalette.grey[5],
+};
+
 const light = {
     palette: lightPalette,
     // app background color
@@ -410,6 +419,7 @@ const light = {
         i18n.language === "ko"
             ? { ...typoKo, ...lightTypoColor, ...fontFamily }
             : { ...typoEn, ...lightTypoColor, ...fontFamily },
+    pushNotification: { color: lightPushNotificationColor },
 };
 
 export type TSpacing = typeof spacing;
