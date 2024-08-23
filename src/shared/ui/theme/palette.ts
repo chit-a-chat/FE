@@ -67,7 +67,7 @@ export const lightPalette = {
         8: "#0C3325",
     },
     common: {
-        black: "#000000",
+        black: "#111110", // lightPalette.grey[8] 과 동일,
         white: "#FDFDFD",
     },
 };
