@@ -420,6 +420,16 @@ const lightPushNotificationColor = {
     },
 };
 
+const lightInputColor = {
+    border: lightPalette.grey[3],
+    placeholder: lightPalette.grey[5],
+    focus: lightPalette.primary[4],
+    text: lightPalette.common.black,
+    outFoucs: lightPalette.grey[5],
+    success: lightPalette.green[5],
+    error: lightPalette.red[6],
+};
+
 const light = {
     palette: lightPalette,
     // app background color
@@ -434,9 +444,11 @@ const light = {
             ? { ...typoKo, ...lightTypoColor, ...fontFamily }
             : { ...typoEn, ...lightTypoColor, ...fontFamily },
     pushNotification: { color: lightPushNotificationColor },
+    input: { color: lightInputColor },
 };
 
 export type TSpacing = typeof spacing;
 export type TButtonShape = typeof buttonShape;
+export type TInputColor = typeof lightInputColor;
 
 export const theme = { light };

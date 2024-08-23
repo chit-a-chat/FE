@@ -3,7 +3,7 @@ import { TButtonStatus, TButtonVariant, TPushNotification, TTypoVariant } from "
 import "@emotion/react";
 
 import { TLightPalette } from "./palette";
-import { TButtonShape, TSpacing } from "./theme";
+import { TButtonShape, TInputColor, TSpacing } from "./theme";
 
 declare module "@emotion/react" {
     export interface Theme {
@@ -51,6 +51,9 @@ declare module "@emotion/react" {
                     [key in TPushNotification]: string;
                 } & { title: string; content: string };
             };
+        };
+        input: {
+            color: TInputColor;
         };
     }
 }
