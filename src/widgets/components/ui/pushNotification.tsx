@@ -19,19 +19,19 @@ export function PushNotification(props: PushNotificationProps) {
     const theme = useTheme();
     return (
         <PushNotificationContainer variant={variant}>
-            <Icons type="info" size="m" color={theme.pushNotification.color[variant]} />
+            <Icons type="info" size="m" color={theme.pushNotification.color.icon[variant]} />
             <FlexDiv
                 direction="column"
                 justifyContent={content ? "start" : "space-between"}
                 alignItems="start"
             >
-                <Typo variant="label/medium" color={theme.pushNotification.color.title}>
+                <Typo variant="label/medium" color={theme.pushNotification.color.typo.title}>
                     {title}
                 </Typo>
-                <Typo variant="label/regular" color={theme.pushNotification.color.content}>
+                <Typo variant="label/regular" color={theme.pushNotification.color.typo.content}>
                     {content}
                 </Typo>
-                <Typo variant="label/regular" color={theme.pushNotification.color[variant]}>
+                <Typo variant="label/regular" color={theme.pushNotification.color.typo[variant]}>
                     {linkText}
                 </Typo>
             </FlexDiv>
@@ -61,7 +61,7 @@ const PushNotificationContainer = styled.div<{ variant: TPushNotification }>`
             width: 10px;
             height: 84px;
             border-radius: 8px 0px 0px 8px;
-            background-color: ${theme.pushNotification.color[variant]};
+            background-color: ${theme.pushNotification.color.container[variant]};
         }
     `}
 `;

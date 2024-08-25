@@ -41,8 +41,16 @@ declare module "@emotion/react" {
         } & { defaultColor: string; linkColor: string; fontFamily: string };
         pushNotification: {
             color: {
-                [key in TPushNotification]: string;
-            } & { title: string; content: string };
+                container: {
+                    [key in TPushNotification]: string;
+                };
+                icon: {
+                    [key in TPushNotification]: string;
+                };
+                typo: {
+                    [key in TPushNotification]: string;
+                } & { title: string; content: string };
+            };
         };
     }
 }
