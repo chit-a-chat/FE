@@ -398,12 +398,26 @@ const lightTypoColor = {
 };
 
 const lightPushNotificationColor = {
-    default: lightPalette.primary[5],
-    error: lightPalette.red[6],
-    success: lightPalette.green[5],
-    info: lightPalette.blue[5],
-    title: lightPalette.grey[8],
-    content: lightPalette.grey[5],
+    container: {
+        default: lightPalette.primary[6],
+        error: lightPalette.red[6],
+        success: lightPalette.green[5],
+        info: lightPalette.blue[5],
+    },
+    icon: {
+        default: lightPalette.primary[6],
+        error: lightPalette.red[6],
+        success: lightPalette.green[6],
+        info: lightPalette.blue[6],
+    },
+    typo: {
+        default: lightPalette.primary[5],
+        error: lightPalette.red[5],
+        success: lightPalette.green[5],
+        info: lightPalette.blue[6],
+        title: lightPalette.grey[8],
+        content: lightPalette.grey[5],
+    },
 };
 
 const light = {
