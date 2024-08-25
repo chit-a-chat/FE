@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@emotion/react':
     specifier: ^11.11.4
@@ -22,6 +26,9 @@ dependencies:
   axios:
     specifier: ^1.7.2
     version: 1.7.2
+  flag-icons:
+    specifier: ^7.2.3
+    version: 7.2.3
   i18next:
     specifier: ^23.11.5
     version: 23.11.5
@@ -42,12 +49,12 @@ dependencies:
     version: 4.3.2(typescript@5.5.3)(vite@5.3.3)
 
 devDependencies:
-  '@styled/typescript-styled-plugin':
-    specifier: ^1.0.1
-    version: 1.0.1
   '@emotion/babel-plugin':
     specifier: ^11.12.0
     version: 11.12.0
+  '@styled/typescript-styled-plugin':
+    specifier: ^1.0.1
+    version: 1.0.1
   '@trivago/prettier-plugin-sort-imports':
     specifier: ^4.3.0
     version: 4.3.0(prettier@3.3.3)
@@ -1024,7 +1031,7 @@ packages:
       vscode-languageserver-textdocument: 1.0.12
       vscode-languageserver-types: 3.17.5
     dev: true
-    
+
   /@tabler/icons-react@3.11.0(react@18.3.1):
     resolution: {integrity: sha512-xHNBi9mns1slvqos+7LkP3ube4CjWrANMbxMaorzwzO9J/+y1sAEG/sN8CV8FmtpYW/9/gDR+OWCjjLLg0RmAw==}
     peerDependencies:
@@ -1873,6 +1880,10 @@ packages:
       locate-path: 6.0.0
       path-exists: 4.0.0
     dev: true
+
+  /flag-icons@7.2.3:
+    resolution: {integrity: sha512-X2gUdteNuqdNqob2KKTJTS+ZCvyWeLCtDz9Ty8uJP17Y4o82Y+U/Vd4JNrdwTAjagYsRznOn9DZ+E/Q52qbmqg==}
+    dev: false
 
   /flat-cache@3.2.0:
     resolution: {integrity: sha512-CYcENa+FtcUKLmhhqyctpclsq7QF38pKjZHsGNiSQF5r4FtoKDWabFDl3hzaEQMvT1LHEysw5twgLvpYYb4vbw==}
@@ -3111,6 +3122,3 @@ packages:
     resolution: {integrity: sha512-cYVsTjKl8b+FrnidjibDWskAv7UKOfcwaVZdp/it9n1s9fU3IkgDbhdIRKCW4JDsAlECJY0ytoVPT3sK6kideA==}
     engines: {node: '>=18'}
     dev: true
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
