@@ -16,7 +16,7 @@ const CountryToAlpha2Map = {
 
 export type TCountryName = keyof typeof CountryToAlpha2Map;
 
-type FlagProps = {
+type TFlagProps = {
     country: TCountryName;
     width?: string;
     height?: string;
@@ -25,18 +25,16 @@ type FlagProps = {
 };
 
 /**
- * @param isRound-원형
- * @param isSquare-국기 정사각형 여부
- * @param country-국가 이름
+ * @param isRound - 원형
  * @example
  * <span class="fi fi-gr"></span> // 일반 국기
  * <span class="fi fi-gr fis"></span> // 정사각형 국기
  */
-export const CountryFlag = ({ isRound, country, width, height, isSquare = true }: FlagProps) => {
+export const CountryFlag = ({ isRound, country, width, height, isSquare = true }: TFlagProps) => {
     return (
         <div
             className={`fi fi-${CountryToAlpha2Map[country]} ${isSquare ? "fis" : ""}`}
-            css={{ width, height, borderRadius: isRound ? "100%" : undefined }}
+            style={{ width, height, borderRadius: isRound ? "100%" : undefined }}
         />
     );
 };
