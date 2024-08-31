@@ -1,12 +1,12 @@
 import { initReactI18next } from "react-i18next";
 
-import i18n from "i18next";
+import i18n, { CustomTypeOptions } from "i18next";
 
-import { en } from "./en";
-import { ko } from "./ko";
+import { en } from "./en/en.translation";
+import { ko } from "./ko/ko.translation";
 
-export const defaultNS = "translation";
-export const resources = { ko, en };
+const defaultNS: keyof CustomTypeOptions["resources"] = "common";
+const resources = { ko, en };
 
 i18n.use(initReactI18next).init({
     lng: localStorage.getItem("language") || "ko",
