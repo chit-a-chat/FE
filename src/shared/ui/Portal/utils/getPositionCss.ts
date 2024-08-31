@@ -10,9 +10,10 @@ type GetChildrenPositionProps = {
     isAutoPosition: boolean;
 };
 /**
+ * CssString에서 Pixel값 number로 뽑아오는 함수.
  * @param lengthFromAnchor Anchor Element로부터의 거리 cssString
  * @param anchorWidthOrHeight cssString이 %일 경우, anchorWidthOrHeight를 기준으로 계산.
- * CssString에서 Pixel값 number로 뽑아오는 함수. */
+ * */
 const getPixelFromCssString = (lengthFromAnchor: string, anchorWidthOrHeight: number) => {
     const endIndex = lengthFromAnchor.match(/[+\-*/x%]/)?.index ?? lengthFromAnchor.length - 1;
     switch (lengthFromAnchor[endIndex]) {
@@ -27,8 +28,8 @@ const getPixelFromCssString = (lengthFromAnchor: string, anchorWidthOrHeight: nu
     }
 };
 /**
- * @param {number} anchorPosition  절대 위치로 px 단위
- * @param {number} lengthFromAnchor anchor로 부터 거리 px 단위
+ * @param anchorPosition  절대 위치로 px 단위
+ * @param lengthFromAnchor anchor로 부터 거리 px 단위
  * */
 const getPosition = (
     lengthFromAnchor: PositionValue,
@@ -135,9 +136,7 @@ export const getPositionCss = ({
         typeof rightFromAnchor !== "undefined"
             ? right * 2 - getPosition(rightFromAnchor, right, width) - dWidth
             : undefined;
-    /**
-     *  초기 렌더링시 컨테이너 밖으로 못나가도록 계산.
-     */
+    /** 초기 렌더링시 컨테이너 밖으로 못나가도록 계산. */
     if (isAutoPosition) {
         if (calculatedLeft && calculatedLeft + dWidth < cRight) {
             calculatedLeft = cRight - dWidth;
