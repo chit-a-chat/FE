@@ -15,8 +15,7 @@ type UsePortalProps = {
 /**
  * @desciption
  * zIndex === 0이면 layeredContainer는 documnet.body가 된다.
- *
- * zIndex !== 0이면 layeredContainer는 document.body에 추가된
+ * zIndex !== 0이면 layeredContainer는 document.body에 추가된다.
  * <div id="layer-${zIndex}"></div>이 된다.
  */
 export const usePortal = ({
@@ -33,9 +32,10 @@ export const usePortal = ({
     );
 
     const { current: layeredChildren } = useRef<ReactNode>(
-        /** @description isAutopostion === true이면 출력 컴포넌트를
+        /**
+         * isAutopostion === true이면 출력 컴포넌트를
          * Container 내부로 강제로 컴포넌트 이동.
-         * */
+         */
         <AutoPosition
             position={position}
             anchorEl={anchorEl}

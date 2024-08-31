@@ -12,7 +12,6 @@ type AutoPositionProps = PropsWithChildren<{
     isAutoPosition: boolean;
 }>;
 /**
- * @description
  * 컴포넌트 위치 계산해주고,
  * isAutoPosition===true일 경우 Container 안으로 위치조정 하는 컴포넌트
  */
@@ -79,7 +78,8 @@ export const AutoPosition = ({
             style={{ ...style }}
             ref={displayElRef}
             onClick={(e) => {
-                /** 원치않는 컴포넌트로 이벤트 전파 방지.
+                /**
+                 * 원치않는 컴포넌트로 이벤트 전파 방지.
                  * DOM트리 기준 이벤트 전파가 아닌, 리액트 트리기준 이벤트 전파이기 때문에,
                  * body에 출력되어있더라도, Portal을 호출했던 컴포넌트로 이벤트 전파가 된다.
                  * 따라서 해당 케이스로 사용하는 경우가 거의 없기때문에, 막아주는게 좋다.
