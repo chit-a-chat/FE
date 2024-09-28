@@ -5,9 +5,8 @@
     font-style: normal;
     font-weight: 100;
     src:
-        url("../fonts/ibm-plex-sans-kr-v10-korean-100.woff2") format("woff2"),
-        url("../fonts/ibm-plex-sans-kr-v10-korean-100.ttf") format("truetype");
-    unicode-range: U+AC00-D7A3;
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-100.woff2") format("woff2"),
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-100.ttf") format("truetype");
 }
 
 @font-face {
@@ -16,9 +15,8 @@
     font-style: normal;
     font-weight: 200;
     src:
-        url("../fonts/ibm-plex-sans-kr-v10-korean-200.woff2") format("woff2"),
-        url("../fonts/ibm-plex-sans-kr-v10-korean-200.ttf") format("truetype");
-    unicode-range: U+AC00-D7A3;
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-200.woff2") format("woff2"),
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-200.ttf") format("truetype");
 }
 
 @font-face {
@@ -27,9 +25,8 @@
     font-style: normal;
     font-weight: 300;
     src:
-        url("../fonts/ibm-plex-sans-kr-v10-korean-300.woff2") format("woff2"),
-        url("../fonts/ibm-plex-sans-kr-v10-korean-300.ttf") format("truetype");
-    unicode-range: U+AC00-D7A3;
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-300.woff2") format("woff2"),
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-300.ttf") format("truetype");
 }
 
 @font-face {
@@ -38,9 +35,8 @@
     font-style: normal;
     font-weight: 400;
     src:
-        url("../fonts/ibm-plex-sans-kr-v10-korean-regular.woff2") format("woff2"),
-        url("../fonts/ibm-plex-sans-kr-v10-korean-regular.ttf") format("truetype");
-    unicode-range: U+AC00-D7A3;
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-regular.woff2") format("woff2"),
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-regular.ttf") format("truetype");
 }
 
 @font-face {
@@ -49,9 +45,8 @@
     font-style: normal;
     font-weight: 500;
     src:
-        url("../fonts/ibm-plex-sans-kr-v10-korean-500.woff2") format("woff2"),
-        url("../fonts/ibm-plex-sans-kr-v10-korean-500.ttf") format("truetype");
-    unicode-range: U+AC00-D7A3;
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-500.woff2") format("woff2"),
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-500.ttf") format("truetype");
 }
 
 @font-face {
@@ -60,9 +55,8 @@
     font-style: normal;
     font-weight: 600;
     src:
-        url("../fonts/ibm-plex-sans-kr-v10-korean-600.woff2") format("woff2"),
-        url("../fonts/ibm-plex-sans-kr-v10-korean-600.ttf") format("truetype");
-    unicode-range: U+AC00-D7A3;
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-600.woff2") format("woff2"),
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-600.ttf") format("truetype");
 }
 
 @font-face {
@@ -71,9 +65,8 @@
     font-style: normal;
     font-weight: 700;
     src:
-        url("../fonts/ibm-plex-sans-kr-v10-korean-700.woff2") format("woff2"),
-        url("../fonts/ibm-plex-sans-kr-v10-korean-700.ttf") format("truetype");
-    unicode-range: U+AC00-D7A3;
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-700.woff2") format("woff2"),
+        url("../fonts/ibm-plex-sans-kr-v10-korean_latin-700.ttf") format("truetype");
 }
 /* Roboto 라틴어 + 특수문자 */
 @font-face {
