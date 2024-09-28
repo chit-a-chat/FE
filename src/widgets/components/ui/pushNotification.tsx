@@ -47,9 +47,7 @@ const PushNotificationContainer = styled.div<{ variant: TPushNotification }>`
         flex-direction: row;
         gap: 4px;
         border-radius: 8px;
-        box-shadow:
-            0 0 5px #0000000d,
-            0 0 20px #00000033;
+        filter: drop-shadow(0px 0px 5px #0000001a) drop-shadow(0px 0px 20px #0000000d);
         padding: 10px 8px;
         padding-left: 18px;
         position: relative;
