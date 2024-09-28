@@ -1,2 +1,1 @@
-export * as GNBs from "./ui/GNBs";
-export { GNB } from "./ui";
+export { GNB } from "./ui/GNB";

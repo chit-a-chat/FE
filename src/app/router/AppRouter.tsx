@@ -18,6 +18,20 @@ export function AppRouter() {
             path: "/",
             element: <HomePage />,
             errorElement: <RouterErrorBoundary />,
+            children: [
+                {
+                    path: "/explore",
+                    element: <div>explore</div>,
+                },
+                {
+                    path: "/matches",
+                    element: <div>matches</div>,
+                },
+                {
+                    path: "/community",
+                    element: <div>community</div>,
+                },
+            ],
         },
         { path: "*", element: <Navigate to="/" replace /> },
     ]);
