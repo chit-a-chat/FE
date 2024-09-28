@@ -1,4 +1,4 @@
-import { TButtonStatus, TButtonVariant, TTypoVariant } from "@shared/type";
+import { TButtonStatus, TButtonVariant, TPushNotification, TTypoVariant } from "@shared/type";
 
 import "@emotion/react";
 
@@ -39,5 +39,18 @@ declare module "@emotion/react" {
                 fontWeight: number;
             };
         } & { defaultColor: string; linkColor: string; fontFamily: string };
+        pushNotification: {
+            color: {
+                container: {
+                    [key in TPushNotification]: string;
+                };
+                icon: {
+                    [key in TPushNotification]: string;
+                };
+                typo: {
+                    [key in TPushNotification]: string;
+                } & { title: string; content: string };
+            };
+        };
     }
 }

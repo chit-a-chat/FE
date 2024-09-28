@@ -7,15 +7,19 @@ export type TIcon =
     | "arrow-left"
     | "arrow-right"
     | "bell"
+    | "bell-filled"
     | "check"
     | "chevron-down"
     | "chevron-down-fill"
     | "chevron-up"
     | "heart"
     | "heart-smily"
+    | "info"
     | "location"
+    | "plus"
     | "search"
     | "setting"
+    | "twinkle"
     | "user"
     | "x";
 
@@ -46,3 +50,6 @@ export type TTypoVariant =
     | "tag/bold"
     | "tag/medium"
     | "tag/regular";
+
+// push notification types
+export type TPushNotification = "default" | "error" | "success" | "info";

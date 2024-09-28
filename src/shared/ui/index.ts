@@ -4,3 +4,4 @@ export { Layout } from "./Layout/Layout";
 export { CountryFlag, type TCountryName } from "./CountryFlag/CountryFlag";
 export { Select } from "./Select/Select";
 export { Portal } from "./Portal/Portal";
+export { FlexDiv } from "./components/flexDiv";
