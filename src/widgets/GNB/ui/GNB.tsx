@@ -1,6 +1,8 @@
+import { Button } from "@widgets/components";
+
 import { LanguageSelect } from "@features/Language";
 
-import { Button, NavBar } from "@shared/ui";
+import { NavBar } from "@shared/ui";
 
 export const GNB = () => {
     const { selectedMenu, menuList } = NavBar.useNavBar();
@@ -15,17 +17,19 @@ export const GNB = () => {
                     </NavBar.Menu>
                 ))}
             </NavBar.MenuList>
-            {isLoggedIn ? (
-                <NavBar.LoggedInContainer>
-                    <div>아이콘</div>
-                    <NavBar.Divider />
-                </NavBar.LoggedInContainer>
-            ) : (
-                <NavBar.LoggedOutContainer>
-                    <LanguageSelect />
-                    <Button variant="secondary" label="Sign in" />
-                </NavBar.LoggedOutContainer>
-            )}
+            <NavBar.ProfileContainer isLoggedIn>
+                {isLoggedIn ? (
+                    <>
+                        <div>아이콘</div>
+                        <NavBar.Divider />
+                    </>
+                ) : (
+                    <>
+                        <LanguageSelect />
+                        <Button variant="secondary" label="Sign in" />
+                    </>
+                )}
+            </NavBar.ProfileContainer>
         </NavBar>
     );
 };

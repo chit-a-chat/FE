@@ -5,3 +5,4 @@ export { CountryFlag } from "./CountryFlag/CountryFlag";
 export { Select } from "./Select/Select";
 export { Portal } from "./Portal/Portal";
 export { FlexDiv } from "./components/flexDiv";
+export { NavBar } from "./NavBar/NavBar";

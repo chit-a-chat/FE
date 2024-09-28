@@ -3,11 +3,10 @@ import { PropsWithChildren } from "react";
 import styled from "@emotion/styled";
 
 import { Divider } from "./component/Divider";
-import { LoggedInContainer } from "./component/LoggedInContainer";
-import { LoggedOutContainer } from "./component/LoggedOutContainer";
 import { Logo } from "./component/Logo";
 import { Menu } from "./component/Menu";
 import { MenuList } from "./component/MenuList";
+import { ProfileContainer } from "./component/ProfileContainer";
 import { useNavBar } from "./hooks/useNavBar";
 
 /** 국기 CSS */
@@ -31,7 +30,6 @@ NavBar.Menu = Menu;
 NavBar.MenuList = MenuList;
 NavBar.Logo = Logo;
 NavBar.useNavBar = useNavBar;
-NavBar.LoggedOutContainer = LoggedOutContainer;
-NavBar.LoggedInContainer = LoggedInContainer;
+NavBar.ProfileContainer = ProfileContainer;
 NavBar.Divider = Divider;
 export default NavBar;
