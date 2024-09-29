@@ -6,3 +6,4 @@ export { Select } from "./Select/Select";
 export { Portal } from "./Portal/Portal";
 export { FlexDiv } from "./components/flexDiv";
 export { NavBar } from "./NavBar/NavBar";
+export { Text } from "./Text/Text";
