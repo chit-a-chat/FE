@@ -6,13 +6,13 @@ import { en } from "./en/en.translation";
 import { ko } from "./ko/ko.translation";
 
 const defaultNS: keyof CustomTypeOptions["resources"] = "common";
-const resources = { ko, en };
+const resources = { Korean: ko, English: en };
 
 i18n.use(initReactI18next).init({
-    lng: localStorage.getItem("language") || "ko",
+    lng: "Korean",
     resources,
     defaultNS,
-    fallbackLng: "ko",
+    fallbackLng: "Korean",
     interpolation: {
         escapeValue: false,
     },
