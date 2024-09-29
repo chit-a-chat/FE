@@ -5,7 +5,7 @@ const NAV_MENU_LIST = [
     { label: "Explore", path: "/explore" },
     { label: "Matches", path: "/matches" },
     { label: "Community", path: "/community" },
-];
+] as const;
 
 export const useNavBar = () => {
     const { pathname: pathName } = useLocation();

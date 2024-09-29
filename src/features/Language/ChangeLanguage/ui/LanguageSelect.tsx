@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 
-import { CountryFlag, Portal, Select, TCountryName } from "@shared/ui";
+import i18n from "@features/i18n";
+
+import { CountryFlag, Portal, Select } from "@shared/ui";
 import { lightPalette } from "@shared/ui/theme/palette";
 
 import { IconChevronDown } from "@tabler/icons-react";
@@ -11,7 +13,7 @@ import { LanguageSelectItem } from "./component/LanguageSelectItem/LanguageSelec
 /** i18n 적용 필요 */
 export const LanguageSelect = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const [language, setLanguage] = useState<TCountryName>("English");
+    const language = i18n.language;
     const anchorContainer = useRef<HTMLDivElement>(null);
     const toggleOpen = () => {
         setIsOpen((prev) => !prev);
@@ -29,14 +31,14 @@ export const LanguageSelect = () => {
                         <Select.MenuList>
                             <Select.MenuItem
                                 onClick={() => {
-                                    setLanguage("Korean");
+                                    i18n.changeLanguage("Korean");
                                 }}
                             >
                                 <LanguageSelectItem country="Korean" />
                             </Select.MenuItem>
                             <Select.MenuItem
                                 onClick={() => {
-                                    setLanguage("English");
+                                    i18n.changeLanguage("English");
                                 }}
                             >
                                 <LanguageSelectItem country="English" />
