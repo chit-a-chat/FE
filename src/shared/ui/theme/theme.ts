@@ -337,15 +337,21 @@ const buttonShape = {
     // padding
     padding: {
         // TODO: 버튼 사이즈에 따라 다르게 지정 2024.08.03. 김하늬
-        medium: `${spacing.xs} ${spacing.lg}`,
+        sm: `${spacing.xs} ${spacing.lg}`,
+        md: `${spacing.xs} ${spacing.lg}`,
+        lg: `${spacing.xs} ${spacing.lg}`,
     },
     // border-radius
     radius: {
-        medium: spacing["2xs"],
+        sm: spacing["2xs"],
+        md: spacing["2xs"],
+        lg: spacing["2xs"],
     },
     // gap between button icon and label
     gap: {
-        medium: spacing["3xs"],
+        sm: spacing["3xs"],
+        md: spacing["3xs"],
+        lg: spacing["3xs"],
     },
 };
 
