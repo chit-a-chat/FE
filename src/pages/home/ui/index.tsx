@@ -1,3 +1,9 @@
+import { HomePictureList } from "@widgets/HomePictureList";
+
 export function Home() {
-    return <div>홈</div>;
+    return (
+        <div>
+            <HomePictureList />
+        </div>
+    );
 }
