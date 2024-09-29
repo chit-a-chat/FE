@@ -1,4 +1,4 @@
-const ROUTES = {
+export const ROUTES = {
     home: {
         url: "/",
     },
@@ -13,5 +13,3 @@ const ROUTES = {
         url: "/commnunity",
     },
 } as const;
-
-export const routes = ROUTES;
