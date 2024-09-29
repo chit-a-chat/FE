@@ -1,6 +1,10 @@
-import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Navigate, Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { HomePage } from "@pages/home";
+import { Home } from "@pages/Home";
+
+import { GNB } from "@widgets/GNB";
+
+import { Layout } from "@shared/ui";
 
 import { RouterErrorBoundary } from "@app/provider";
 
@@ -11,9 +15,18 @@ export function AppRouter() {
         ...(import.meta.env.DEV ? DevRouter : []),
         {
             path: "/",
-            element: <HomePage />,
+            element: (
+                <Layout>
+                    <GNB />
+                    <Outlet />
+                </Layout>
+            ),
             errorElement: <RouterErrorBoundary />,
             children: [
+                {
+                    index: true,
+                    element: <Home />,
+                },
                 {
                     path: "/explore",
                     element: <div>explore</div>,

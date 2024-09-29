@@ -1,9 +1,3 @@
-import { GNB } from "@widgets/GNB";
-
-export function HomePage() {
-    return (
-        <>
-            <GNB />
-        </>
-    );
+export function Home() {
+    return <div>홈</div>;
 }
