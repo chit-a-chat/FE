@@ -22,7 +22,8 @@ const spacing = {
 
 // Typography font-family
 const fontFamily = {
-    fontFamily: i18n.language === "ko" ? "'IBM Plex Sans KR', sans-serif" : "'Roboto', sans-serif",
+    fontFamily:
+        i18n.language === "Korean" ? "'IBM Plex Sans KR', sans-serif" : "'Roboto', sans-serif",
 };
 
 // Typography 한국어
@@ -177,7 +178,7 @@ const typoKo = {
         letterSpacing: "0px",
         fontWeight: 400,
     },
-};
+} as const;
 
 // Typography 영어
 const typoEn = {
@@ -331,7 +332,7 @@ const typoEn = {
         letterSpacing: "0px",
         fontWeight: 400,
     },
-};
+} as const;
 
 const buttonShape = {
     // padding
@@ -436,7 +437,7 @@ const light = {
     },
     spacing,
     typo:
-        i18n.language === "ko"
+        i18n.language === "Korean"
             ? { ...typoKo, ...lightTypoColor, ...fontFamily }
             : { ...typoEn, ...lightTypoColor, ...fontFamily },
     pushNotification: { color: lightPushNotificationColor },
