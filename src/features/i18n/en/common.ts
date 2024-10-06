@@ -4,6 +4,6 @@ export const common = {
         Explore: "Explore",
         Matches: "Matches",
         Community: "Community",
-        SignInBtn: "SignInBtn",
+        SignInBtn: "Sign In",
     },
 } as const;
