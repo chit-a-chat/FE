@@ -5,7 +5,6 @@ import ReactDOM from "react-dom/client";
 import { SetupWorker } from "msw/browser";
 
 import { changeAxiosConfig } from "@shared/lib/axios/changeAxiosConfig";
-import { Layout } from "@shared/ui";
 
 import { GlobalStyle } from "./lib/globalStyle";
 import { MockApiSetter } from "./mock";
@@ -33,9 +32,7 @@ async function initializeApp() {
             {import.meta.env.DEV && worker && <MockApiSetter worker={worker} />}
             <Providers>
                 <GlobalStyle />
-                <Layout>
-                    <AppRouter />
-                </Layout>
+                <AppRouter />
             </Providers>
         </React.StrictMode>
     );

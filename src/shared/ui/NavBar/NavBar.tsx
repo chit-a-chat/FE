@@ -17,6 +17,7 @@ const NavBarContainer = styled.header`
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding: 0 60px;
 `;
 type NavBarProps = {
     selectedMenu: string;
