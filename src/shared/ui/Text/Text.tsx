@@ -8,5 +8,6 @@ export const Text = styled.span<{ typoVariant: TTypoVariant; color?: string }>(
         css({
             ...theme.typo[typoVariant],
             color: color ?? theme.palette.grey[8],
+            whiteSpace: "pre-wrap",
         })
 );
