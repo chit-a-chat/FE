@@ -43,7 +43,11 @@ export function Home() {
                             </Text>
                         </FlexDiv>
                     </FlexDiv>
-                    <Button label={t("MainButton")} iconRight="search" size="lg" />
+                    <Button
+                        label={t("MainButton")}
+                        iconRight={{ icon: "search", color: theme.palette.common.white }}
+                        size="lg"
+                    />
                 </FlexDiv>
                 <FlexDiv direction="column" gap={24}>
                     <HomeStatistics />
