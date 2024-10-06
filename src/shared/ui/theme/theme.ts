@@ -1,5 +1,7 @@
 import i18n from "@features/i18n";
 
+import { TTypoVariant } from "@shared/type";
+
 import { lightPalette } from "./palette";
 
 /**
@@ -27,7 +29,7 @@ const fontFamily = {
 };
 
 // Typography 한국어
-const typoKo = {
+const typoKo: Record<TTypoVariant, object> = {
     "display/superLarge": {
         fontSize: "87.4px",
         lineHeight: "132px",
@@ -130,19 +132,19 @@ const typoKo = {
         letterSpacing: "0.1px",
         fontWeight: 400,
     },
-    "buttonLarge/medium": {
+    "button/large": {
         fontSize: "24px",
         lineHeight: "28px",
         letterSpacing: "0.5px",
         fontWeight: 500,
     },
-    "buttonMedium/medium": {
+    "button/medium": {
         fontSize: "16px",
         lineHeight: "24px",
         letterSpacing: "0.5px",
         fontWeight: 500,
     },
-    "buttonSmall/medium": {
+    "button/small": {
         fontSize: "14px",
         lineHeight: "21px",
         letterSpacing: "0.5px",
@@ -181,7 +183,7 @@ const typoKo = {
 } as const;
 
 // Typography 영어
-const typoEn = {
+const typoEn: Record<TTypoVariant, object> = {
     "display/superLarge": {
         fontSize: "76px",
         lineHeight: "114px",
@@ -284,19 +286,19 @@ const typoEn = {
         letterSpacing: "0.1px",
         fontWeight: 400,
     },
-    "buttonLarge/medium": {
+    "button/large": {
         fontSize: "24px",
         lineHeight: "36px",
         letterSpacing: "0.5px",
         fontWeight: 500,
     },
-    "buttonMedium/medium": {
+    "button/medium": {
         fontSize: "16px",
         lineHeight: "24px",
         letterSpacing: "0.5px",
         fontWeight: 500,
     },
-    "buttonSmall/medium": {
+    "button/small": {
         fontSize: "14px",
         lineHeight: "21px",
         letterSpacing: "0.5px",
@@ -338,21 +340,21 @@ const buttonShape = {
     // padding
     padding: {
         // TODO: 버튼 사이즈에 따라 다르게 지정 2024.08.03. 김하늬
-        sm: `${spacing.xs} ${spacing.lg}`,
-        md: `${spacing.xs} ${spacing.lg}`,
-        lg: `${spacing.xs} ${spacing.lg}`,
+        sm: `10px 20px`,
+        md: `10px 20px`,
+        lg: `14px 20px`,
     },
     // border-radius
     radius: {
-        sm: spacing["2xs"],
-        md: spacing["2xs"],
-        lg: spacing["2xs"],
+        sm: "8px",
+        md: "8px",
+        lg: "8px",
     },
     // gap between button icon and label
     gap: {
-        sm: spacing["3xs"],
-        md: spacing["3xs"],
-        lg: spacing["3xs"],
+        sm: "6px",
+        md: "6px",
+        lg: "6px",
     },
 };
 

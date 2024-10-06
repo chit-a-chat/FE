@@ -1,4 +1,5 @@
 import { TButtonVariant, TIcon } from "@shared/type";
+import { Text } from "@shared/ui";
 
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -8,8 +9,8 @@ import { Icons } from "./icons";
 interface ButtonProps {
     variant?: TButtonVariant;
     label: string;
-    iconLeft?: TIcon;
-    iconRight?: TIcon;
+    iconLeft?: { icon: TIcon; color: string };
+    iconRight?: { icon: TIcon; color: string };
     // TODO: 버튼 사이즈 'large', 'small'인 경우 추가
     size?: "sm" | "md" | "lg";
 }
@@ -51,6 +52,11 @@ const StyledButton = styled.button<{
         }
     `}
 `;
+const TYPO_VARIANT = {
+    sm: "button/small",
+    md: "button/medium",
+    lg: "button/large",
+} as const;
 
 // TODO: typography theme 적용 2024.08.03. 김하늬
 export function Button({
@@ -62,9 +68,23 @@ export function Button({
 }: ButtonProps) {
     return (
         <StyledButton variant={variant} size={size}>
-            {iconLeft && <Icons type={iconLeft} size={size === "md" ? "l" : "m"} />}
-            {label}
-            {iconRight && <Icons type={iconRight} size={size === "md" ? "l" : "m"} />}
+            {iconLeft && (
+                <Icons
+                    type={iconLeft.icon}
+                    size={size === "md" ? "l" : "m"}
+                    color={iconLeft.color}
+                />
+            )}
+            <Text color="inherit" typoVariant={TYPO_VARIANT[size]}>
+                {label}
+            </Text>
+            {iconRight && (
+                <Icons
+                    type={iconRight.icon}
+                    size={size === "md" ? "l" : "m"}
+                    color={iconRight.color}
+                />
+            )}
         </StyledButton>
     );
 }
