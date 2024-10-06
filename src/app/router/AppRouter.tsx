@@ -2,6 +2,7 @@ import { Navigate, Outlet, RouterProvider, createBrowserRouter } from "react-rou
 
 import { Home } from "@pages/Home";
 
+import { Footer } from "@widgets/Foooter";
 import { GNB } from "@widgets/GNB";
 
 import { Layout } from "@shared/ui";
@@ -18,7 +19,10 @@ export function AppRouter() {
             element: (
                 <Layout>
                     <GNB />
-                    <Outlet />
+                    <main>
+                        <Outlet />
+                    </main>
+                    <Footer />
                 </Layout>
             ),
             errorElement: <RouterErrorBoundary />,
