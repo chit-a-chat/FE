@@ -66,6 +66,17 @@ export const lightPalette = {
         7: "#1B4332",
         8: "#0C3325",
     },
+    yellow: {
+        0: "#FFF5C3",
+        1: "#FFF147",
+        2: "#FCD408",
+        3: "#D4B900",
+        4: "#A88399",
+        5: "#806F00",
+        6: "#594C00",
+        7: "#342C00",
+        8: "#241F02",
+    },
     common: {
         black: "#111110", // lightPalette.grey[8] 과 동일,
         white: "#FDFDFD",
