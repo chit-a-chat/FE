@@ -23,6 +23,7 @@ export const AutoPosition = ({
     isAutoPosition,
 }: AutoPositionProps) => {
     const throttlingKey = useRef<number | null>();
+    const resizeThrottlingKey = useRef<number | null>();
     const displayElRef = useRef<HTMLDivElement>(null);
     /** 컨테이너에 scroll 있을때, 스크롤 해도 위치를 고정시켜주는 역할. */
     const { current: initialScroll } = useRef<{ x: number; y: number }>({
@@ -66,10 +67,33 @@ export const AutoPosition = ({
                 }, 10);
             }
         };
-
-        if (container) container.addEventListener("scroll", handlePostion);
+        const handleResize = () => {
+            if (!resizeThrottlingKey.current) {
+                resizeThrottlingKey.current = setTimeout(() => {
+                    requestAnimationFrame(() => {
+                        setStyle(
+                            getPositionCss({
+                                position,
+                                anchorEl,
+                                container,
+                                displayEl,
+                                isAutoPosition,
+                            })
+                        );
+                        resizeThrottlingKey.current = null;
+                    });
+                }, 10);
+            }
+        };
+        if (container) {
+            container.addEventListener("scroll", handlePostion);
+            window.addEventListener("resize", handleResize);
+        }
         return () => {
-            if (container) container.removeEventListener("scroll", handlePostion);
+            if (container) {
+                container.removeEventListener("scroll", handlePostion);
+                window.removeEventListener("resize", handleResize);
+            }
         };
     }, [anchorEl, initialScroll, position, container, displayElRef, isAutoPosition]);
 
