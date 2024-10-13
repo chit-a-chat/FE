@@ -190,6 +190,24 @@ const typoKo: Record<
         letterSpacing: "0px",
         fontWeight: 400,
     },
+    "supporting/regular": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0.1px",
+        fontWeight: 400,
+    },
+    "supporting/medium": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0.1px",
+        fontWeight: 500,
+    },
+    "supporting/bold": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0.1px",
+        fontWeight: 600,
+    },
 } as const;
 
 // Typography 영어
@@ -351,6 +369,24 @@ const typoEn: Record<
         lineHeight: "21px",
         letterSpacing: "0px",
         fontWeight: 400,
+    },
+    "supporting/regular": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0.1px",
+        fontWeight: 400,
+    },
+    "supporting/medium": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0.1px",
+        fontWeight: 500,
+    },
+    "supporting/bold": {
+        fontSize: "14px",
+        lineHeight: "21px",
+        letterSpacing: "0.1px",
+        fontWeight: 600,
     },
 } as const;
 
