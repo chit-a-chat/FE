@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import { Icons } from "@widgets/components";
-
+import { Icon } from "@shared/Icon";
 import { TIcon } from "@shared/type";
 import { FlexDiv, Text } from "@shared/ui";
 
@@ -29,7 +28,7 @@ export const StatisticCard = ({ target }: StatisticCardProps) => {
         <FlexDiv direction="column" gap={5} alignItems="flex-start">
             <Text typoVariant="display/large">10 K</Text>
             <FlexDiv gap={4}>
-                <Icons type={TAGET_TO_ICON[target]} size="l" color={theme.palette.primary[5]} />
+                <Icon type={TAGET_TO_ICON[target]} size="l" color={theme.palette.primary[5]} />
                 <Text typoVariant="h4/regular" color={theme.palette.grey[7]}>
                     {t(TARGET_TO_LABEL[target])}
                 </Text>

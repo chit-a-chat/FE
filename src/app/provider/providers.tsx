@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 import { queryClient } from "@shared/lib";
 
-import { useTheme } from "@app/lib";
+import { useGetTheme } from "@app/lib/useGetTheme";
 import { ThemeProvider } from "@emotion/react";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -15,7 +15,7 @@ interface ProvidersProps {
 }
 
 export function Providers({ children }: ProvidersProps) {
-    const { theme } = useTheme();
+    const { theme } = useGetTheme();
 
     return (
         <ThemeProvider theme={theme}>

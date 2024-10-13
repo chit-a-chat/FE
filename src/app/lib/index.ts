@@ -1,2 +1,2 @@
 export { GlobalStyle } from "./globalStyle";
-export { useTheme } from "./useTheme";
+export { useGetTheme } from "./useGetTheme";
