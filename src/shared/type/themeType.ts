@@ -22,7 +22,10 @@ export type TIcon =
     | "twinkle"
     | "user"
     | "x"
-    | "google";
+    | "google"
+    | "card-heart"
+    | "arrow-target"
+    | "graph-bar";
 
 // typo types
 export type TTypoVariant =

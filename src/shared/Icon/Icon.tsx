@@ -16,15 +16,18 @@ const SIZE_TO_PIXEL = {
 type TIconSize = keyof typeof SIZE_TO_PIXEL;
 interface CustomIconsProps {
     type: TIcon;
-    size?: TIconSize;
+    size?: TIconSize | number;
     color?: string;
 }
 export function Icon({ type, size = "m", color }: CustomIconsProps) {
     const theme = useTheme();
     const NewIcon = ICONS[type];
     return typeof NewIcon === "string" ? (
-        <CustomIcon size={SIZE_TO_PIXEL[size]} src={NewIcon} />
+        <CustomIcon size={typeof size === "number" ? size : SIZE_TO_PIXEL[size]} src={NewIcon} />
     ) : (
-        <NewIcon size={SIZE_TO_PIXEL[size]} color={color ?? theme.palette.common.black} />
+        <NewIcon
+            size={typeof size === "number" ? size : SIZE_TO_PIXEL[size]}
+            color={color ?? theme.palette.common.black}
+        />
     );
 }
