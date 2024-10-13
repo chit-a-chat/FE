@@ -1,6 +1,7 @@
 import { Navigate, Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import { Home } from "@pages/Home";
+import { SignIn } from "@pages/SignIn";
 
 import { Footer } from "@widgets/Foooter";
 import { GNB } from "@widgets/GNB";
@@ -44,6 +45,16 @@ export function AppRouter() {
                     element: <div>community</div>,
                 },
             ],
+        },
+        {
+            path: "/sign-in",
+            element: (
+                <Layout>
+                    <main css={{ minHeight: 0 }}>
+                        <SignIn />
+                    </main>
+                </Layout>
+            ),
         },
         { path: "*", element: <Navigate to="/" replace /> },
     ]);

@@ -1,6 +1,7 @@
 import { en } from "../en/en.translation";
 import { common } from "./common";
 import { home } from "./home";
+import { sign_in } from "./sign_in";
 
 /** Object Key값들만 가져와 타입 만드는 타입 유틸. */
 type TEqualKeyObject<T> = {
@@ -10,4 +11,5 @@ type TEqualKeyObject<T> = {
 export const ko: TEqualKeyObject<typeof en> = {
     common,
     home,
+    sign_in,
 } as const;

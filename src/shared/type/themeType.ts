@@ -21,7 +21,11 @@ export type TIcon =
     | "setting"
     | "twinkle"
     | "user"
-    | "x";
+    | "x"
+    | "google"
+    | "card-heart"
+    | "arrow-target"
+    | "graph-bar";
 
 // typo types
 export type TTypoVariant =
@@ -45,11 +49,14 @@ export type TTypoVariant =
     | "button/large"
     | "button/medium"
     | "button/small"
-    | "linkLarge/regular"
-    | "linkMedium/regular"
+    | "link/large"
+    | "link/regular"
     | "tag/bold"
     | "tag/medium"
-    | "tag/regular";
+    | "tag/regular"
+    | "supporting/regular"
+    | "supporting/medium"
+    | "supporting/bold";
 
 // push notification types
 export type TPushNotification = "default" | "error" | "success" | "info";
