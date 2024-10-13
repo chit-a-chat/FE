@@ -1,10 +1,11 @@
+import { ButtonHTMLAttributes } from "react";
+
+import { Icon } from "@shared/Icon";
 import { TButtonVariant, TIcon } from "@shared/type";
 import { Text } from "@shared/ui";
 
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-
-import { Icons } from "./icons";
 
 interface ButtonProps {
     variant?: TButtonVariant;
@@ -30,6 +31,7 @@ const StyledButton = styled.button<{
         position: relative;
         display: flex;
         align-items: center;
+        justify-content: center;
 
         &:hover {
             background-color: ${theme.button.color.background.hover?.[variant]};
@@ -65,11 +67,12 @@ export function Button({
     iconLeft,
     iconRight,
     size = "md",
-}: ButtonProps) {
+    ...props
+}: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) {
     return (
-        <StyledButton variant={variant} size={size}>
+        <StyledButton variant={variant} size={size} {...props}>
             {iconLeft && (
-                <Icons
+                <Icon
                     type={iconLeft.icon}
                     size={size === "md" ? "l" : "m"}
                     color={iconLeft.color}
@@ -79,7 +82,7 @@ export function Button({
                 {label}
             </Text>
             {iconRight && (
-                <Icons
+                <Icon
                     type={iconRight.icon}
                     size={size === "md" ? "l" : "m"}
                     color={iconRight.color}

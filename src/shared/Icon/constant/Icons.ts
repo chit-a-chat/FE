@@ -1,6 +1,3 @@
-import { TIcon } from "@shared/type";
-
-import { useTheme } from "@emotion/react";
 import {
     IconArrowLeft,
     IconArrowRight,
@@ -22,23 +19,9 @@ import {
     IconX,
 } from "@tabler/icons-react";
 
-const SIZE_TO_PIXEL = {
-    xl: 30,
-    l: 24,
-    m: 20,
-    s: 18,
-    xs: 14,
-};
+import { default as googleLogo } from "../customIcons/googleLogo.png";
 
-type TIconSize = keyof typeof SIZE_TO_PIXEL;
-
-interface CustomIconsProps {
-    type: TIcon;
-    size?: TIconSize;
-    color?: string;
-}
-
-const icons = {
+export const ICONS = {
     "arrow-left": IconArrowLeft,
     "arrow-right": IconArrowRight,
     bell: IconBell,
@@ -57,11 +40,5 @@ const icons = {
     twinkle: IconSparkles,
     user: IconUser,
     x: IconX,
-};
-
-export function Icons({ type, size = "m", color }: CustomIconsProps) {
-    const theme = useTheme();
-
-    const NewIcon = icons[type];
-    return <NewIcon size={SIZE_TO_PIXEL[size]} color={color ?? theme.palette.common.black} />;
-}
+    google: googleLogo,
+} as const;
