@@ -2,6 +2,8 @@ import i18n from "@features/i18n";
 
 import { TTypoVariant } from "@shared/type";
 
+import { Theme } from "@emotion/react";
+
 import { lightPalette } from "./palette";
 
 /**
@@ -29,7 +31,15 @@ const fontFamily = {
 };
 
 // Typography 한국어
-const typoKo: Record<TTypoVariant, object> = {
+const typoKo: Record<
+    TTypoVariant,
+    {
+        fontSize: string;
+        lineHeight: string;
+        letterSpacing: string;
+        fontWeight: number;
+    }
+> = {
     "display/superLarge": {
         fontSize: "87.4px",
         lineHeight: "132px",
@@ -183,7 +193,15 @@ const typoKo: Record<TTypoVariant, object> = {
 } as const;
 
 // Typography 영어
-const typoEn: Record<TTypoVariant, object> = {
+const typoEn: Record<
+    TTypoVariant,
+    {
+        fontSize: string;
+        lineHeight: string;
+        letterSpacing: string;
+        fontWeight: number;
+    }
+> = {
     "display/superLarge": {
         fontSize: "76px",
         lineHeight: "114px",
@@ -427,9 +445,12 @@ const lightPushNotificationColor = {
         title: lightPalette.grey[8],
         content: lightPalette.grey[5],
     },
-};
+} as const;
 
-const light = {
+export const typoKorean = { ...typoKo, ...lightTypoColor, ...fontFamily };
+export const typoEnglish = { ...typoEn, ...lightTypoColor, ...fontFamily };
+
+const light: Theme = {
     palette: lightPalette,
     // app background color
     bgColor: "linear-gradient(180deg, rgba(231, 225, 255, 0.4) 0%, rgba(221, 230, 253, 0.4) 83%)",
@@ -438,12 +459,9 @@ const light = {
         color: lightButtonColor,
     },
     spacing,
-    typo:
-        i18n.language === "Korean"
-            ? { ...typoKo, ...lightTypoColor, ...fontFamily }
-            : { ...typoEn, ...lightTypoColor, ...fontFamily },
+    typo: i18n.language === "Korean" ? typoKorean : typoEnglish,
     pushNotification: { color: lightPushNotificationColor },
-};
+} as const;
 
 export type TSpacing = typeof spacing;
 export type TButtonShape = typeof buttonShape;

@@ -1,10 +1,10 @@
+import { Icon } from "@shared/Icon";
 import { TPushNotification } from "@shared/type";
 import { FlexDiv } from "@shared/ui";
 
 import { css, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 
-import { Icons } from "./icons";
 import { Typo } from "./typo";
 
 interface PushNotificationProps {
@@ -19,7 +19,7 @@ export function PushNotification(props: PushNotificationProps) {
     const theme = useTheme();
     return (
         <PushNotificationContainer variant={variant}>
-            <Icons type="info" size="m" color={theme.pushNotification.color.icon[variant]} />
+            <Icon type="info" size="m" color={theme.pushNotification.color.icon[variant]} />
             <FlexDiv
                 direction="column"
                 justifyContent={content ? "start" : "space-between"}
