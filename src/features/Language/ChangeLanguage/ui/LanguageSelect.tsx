@@ -32,6 +32,7 @@ export const LanguageSelect = () => {
                             <Select.MenuItem
                                 onClick={() => {
                                     i18n.changeLanguage("Korean");
+                                    setIsOpen(false);
                                 }}
                             >
                                 <LanguageSelectItem country="Korean" />
@@ -39,6 +40,7 @@ export const LanguageSelect = () => {
                             <Select.MenuItem
                                 onClick={() => {
                                     i18n.changeLanguage("English");
+                                    setIsOpen(false);
                                 }}
                             >
                                 <LanguageSelectItem country="English" />
