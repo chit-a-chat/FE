@@ -160,13 +160,13 @@ const typoKo: Record<
         letterSpacing: "0.5px",
         fontWeight: 500,
     },
-    "linkLarge/regular": {
+    "link/large": {
         fontSize: "26.65px",
         lineHeight: "38.5px",
         letterSpacing: "0.25px",
         fontWeight: 400,
     },
-    "linkMedium/regular": {
+    "link/regular": {
         fontSize: "17.1px",
         lineHeight: "28px",
         letterSpacing: "0.25px",
@@ -322,13 +322,13 @@ const typoEn: Record<
         letterSpacing: "0.5px",
         fontWeight: 500,
     },
-    "linkLarge/regular": {
+    "link/large": {
         fontSize: "24px",
         lineHeight: "36px",
         letterSpacing: "0.25px",
         fontWeight: 400,
     },
-    "linkMedium/regular": {
+    "link/regular": {
         fontSize: "16px",
         lineHeight: "24px",
         letterSpacing: "0.25px",

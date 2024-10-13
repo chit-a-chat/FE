@@ -21,7 +21,8 @@ export type TIcon =
     | "setting"
     | "twinkle"
     | "user"
-    | "x";
+    | "x"
+    | "google";
 
 // typo types
 export type TTypoVariant =
@@ -45,8 +46,8 @@ export type TTypoVariant =
     | "button/large"
     | "button/medium"
     | "button/small"
-    | "linkLarge/regular"
-    | "linkMedium/regular"
+    | "link/large"
+    | "link/regular"
     | "tag/bold"
     | "tag/medium"
     | "tag/regular";
