@@ -5,11 +5,17 @@ import { Button } from "@widgets/components";
 
 import { LanguageSelect } from "@features/Language";
 
+import { AccountProfile, useAccountStore } from "@entities/account";
+
+import { Icon } from "@shared/Icon";
 import { NavBar } from "@shared/ui";
+
+import { useTheme } from "@emotion/react";
 
 export const GNB = () => {
     const { selectedMenu, menuList } = NavBar.useNavBar();
-    const isLoggedIn = localStorage.getItem("exampleToken");
+    const { isLoggedIn, logout } = useAccountStore();
+    const theme = useTheme();
     const { t } = useTranslation("common");
     const navigate = useNavigate();
     return (
@@ -25,8 +31,16 @@ export const GNB = () => {
             <NavBar.ProfileContainer isLoggedIn>
                 {isLoggedIn ? (
                     <>
-                        <div>아이콘</div>
+                        <Icon type="bell-filled" color={theme.palette.primary[5]} size={"m"} />
                         <NavBar.Divider />
+                        <AccountProfile />
+                        <Button
+                            variant="secondary"
+                            label={"임시 로그아웃"}
+                            onClick={() => {
+                                logout();
+                            }}
+                        />
                     </>
                 ) : (
                     <>

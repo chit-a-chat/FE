@@ -4,6 +4,8 @@ import { HomePictureList } from "@widgets/HomePictureList";
 import { HomeStatistics } from "@widgets/HomeStatistics";
 import { Button } from "@widgets/components";
 
+import { useAccountStore } from "@entities/account";
+
 import { FlexDiv, Text } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
@@ -11,6 +13,7 @@ import { useTheme } from "@emotion/react";
 import { HomeTitleLogo } from "./component/HomeTitleLogo";
 
 export function Home() {
+    const { isLoggedIn } = useAccountStore();
     const { t } = useTranslation("home");
     const theme = useTheme();
     return (
@@ -24,36 +27,40 @@ export function Home() {
                 flex: 1,
             }}
         >
-            <FlexDiv direction="column" gap={48}>
-                <FlexDiv direction="column" gap={24}>
+            {isLoggedIn ? (
+                <div>로그인 화면</div>
+            ) : (
+                <FlexDiv direction="column" gap={48}>
                     <FlexDiv direction="column" gap={24}>
-                        <FlexDiv gap={5} direction="column">
-                            <Text typoVariant="display/large" color={theme.palette.primary[7]}>
-                                {t("MainTitle")}
-                            </Text>
-                            <HomeTitleLogo />
+                        <FlexDiv direction="column" gap={24}>
+                            <FlexDiv gap={5} direction="column">
+                                <Text typoVariant="display/large" color={theme.palette.primary[7]}>
+                                    {t("MainTitle")}
+                                </Text>
+                                <HomeTitleLogo />
+                            </FlexDiv>
+                            <FlexDiv>
+                                <Text
+                                    typoVariant="h4/regular"
+                                    color={theme.palette.grey[6]}
+                                    css={{ textAlign: "center" }}
+                                >
+                                    {t("SubTitle")}
+                                </Text>
+                            </FlexDiv>
                         </FlexDiv>
-                        <FlexDiv>
-                            <Text
-                                typoVariant="h4/regular"
-                                color={theme.palette.grey[6]}
-                                css={{ textAlign: "center" }}
-                            >
-                                {t("SubTitle")}
-                            </Text>
-                        </FlexDiv>
+                        <Button
+                            label={t("MainButton")}
+                            iconRight={{ icon: "search", color: theme.palette.common.white }}
+                            size="lg"
+                        />
                     </FlexDiv>
-                    <Button
-                        label={t("MainButton")}
-                        iconRight={{ icon: "search", color: theme.palette.common.white }}
-                        size="lg"
-                    />
+                    <FlexDiv direction="column" gap={24}>
+                        <HomeStatistics />
+                        <HomePictureList />
+                    </FlexDiv>
                 </FlexDiv>
-                <FlexDiv direction="column" gap={24}>
-                    <HomeStatistics />
-                    <HomePictureList />
-                </FlexDiv>
-            </FlexDiv>
+            )}
         </section>
     );
 }
