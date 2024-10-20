@@ -24,7 +24,6 @@ async function initializeApp() {
         /** api 워커 띄우기 (실제로는 public 폴더의 mockServiceWorker가 실행) */
         const { mockApiWorker } = await import("./mock/mockApiWorker");
         worker = mockApiWorker;
-        await worker.start();
     }
     ReactDOM.createRoot(document.getElementById("root")!).render(
         <React.StrictMode>

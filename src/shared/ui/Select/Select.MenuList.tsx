@@ -1,7 +1,9 @@
+import { PropsWithChildren, forwardRef } from "react";
+
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
-export const MenuList = styled.div(
+const MenuListContainer = styled.div(
     ({ theme }) => css`
         display: flex;
         flex-direction: column;
@@ -12,3 +14,11 @@ export const MenuList = styled.div(
         border-radius: 10px;
     `
 );
+
+export const MenuList = forwardRef<HTMLDivElement, PropsWithChildren>(({ children }, ref) => {
+    return (
+        <MenuListContainer ref={ref} role="menu">
+            {children}
+        </MenuListContainer>
+    );
+});
