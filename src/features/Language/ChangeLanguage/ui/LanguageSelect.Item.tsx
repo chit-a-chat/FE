@@ -1,6 +1,6 @@
 import { CountryFlag, TCountryName } from "@shared/ui";
 
-export const LanguageSelectItem = ({ country }: { country: TCountryName }) => {
+export const Item = ({ country }: { country: TCountryName }) => {
     return (
         <div
             style={{
