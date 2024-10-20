@@ -8,7 +8,7 @@ export const MockApiSetter = ({ worker }: { worker: SetupWorker }) => {
     /** 툴박스 열림 여부 */
     const [isOpen, setIsOpen] = useState<boolean>(false);
     /** MockApi 서버 On/Off 여부 */
-    const [isMockApi, setIsMockApi] = useState<boolean>(true);
+    const [isMockApi, setIsMockApi] = useState<boolean>(false);
     /** 서버 크기/켜기 */
     const toggleWorker = useCallback(async (worker: SetupWorker, isWorkerLive: boolean) => {
         isWorkerLive ? worker.stop() : await worker.start();
