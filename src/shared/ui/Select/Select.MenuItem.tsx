@@ -29,6 +29,7 @@ export const MenuItem = forwardRef<HTMLDivElement, PropsWithChildren<MenuItemPro
                 onClick={() => {
                     handleMenuClick(value);
                 }}
+                role="menuitem"
             >
                 {children}
             </MenuItemContainer>

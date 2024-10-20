@@ -16,5 +16,9 @@ const MenuListContainer = styled.div(
 );
 
 export const MenuList = forwardRef<HTMLDivElement, PropsWithChildren>(({ children }, ref) => {
-    return <MenuListContainer ref={ref}>{children}</MenuListContainer>;
+    return (
+        <MenuListContainer ref={ref} role="menu">
+            {children}
+        </MenuListContainer>
+    );
 });
