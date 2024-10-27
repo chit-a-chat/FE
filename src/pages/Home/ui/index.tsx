@@ -28,7 +28,7 @@ export function Home() {
                     : `linear-gradient(180deg, ${theme.palette.primary[1]}66 0%, ${theme.palette.blue[1]}66 83%)`,
                 flexDirection: "column",
                 flex: 1,
-                gap: isLoggedIn ? "58px" : undefined,
+                gap: isLoggedIn ? "20px" : undefined,
                 minHeight: 0,
             }}
         >
