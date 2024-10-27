@@ -19,15 +19,20 @@ interface CustomIconsProps {
     size?: TIconSize | number;
     color?: string;
 }
-export function Icon({ type, size = "m", color }: CustomIconsProps) {
+export function Icon({ type, size = "m", color, ...props }: CustomIconsProps) {
     const theme = useTheme();
     const NewIcon = ICONS[type];
     return typeof NewIcon === "string" ? (
-        <CustomIcon size={typeof size === "number" ? size : SIZE_TO_PIXEL[size]} src={NewIcon} />
+        <CustomIcon
+            size={typeof size === "number" ? size : SIZE_TO_PIXEL[size]}
+            src={NewIcon}
+            {...props}
+        />
     ) : (
         <NewIcon
             size={typeof size === "number" ? size : SIZE_TO_PIXEL[size]}
             color={color ?? theme.palette.common.black}
+            {...props}
         />
     );
 }
