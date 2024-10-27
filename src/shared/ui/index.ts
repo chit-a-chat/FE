@@ -8,3 +8,5 @@ export { FlexDiv } from "./components/flexDiv";
 export { NavBar } from "./NavBar/NavBar";
 export { Text } from "./Text/Text";
 export { Backdrop } from "./Backdrop/Backdrop";
+export { Badge } from "./Badge/Badge";
+export { Profile } from "./Profile/Profile";
