@@ -20,7 +20,7 @@ export function AppRouter() {
             element: (
                 <Layout>
                     <GNB />
-                    <main>
+                    <main css={{ minHeight: 0 }}>
                         <Outlet />
                     </main>
                     <Footer />

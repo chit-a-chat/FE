@@ -1,5 +1,5 @@
 import { Icon } from "@shared/Icon";
-import { FlexDiv, Text } from "@shared/ui";
+import { FlexDiv, Profile, Text } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
 
@@ -18,17 +18,8 @@ export const AccountProfile = () => {
                     {account?.name}
                 </Text>
             </FlexDiv>
-            <FlexDiv>
-                <img
-                    src={account?.profileImage ?? "/"}
-                    alt="프로필 이미지"
-                    css={{
-                        width: "42px",
-                        height: "42px",
-                        objectFit: "cover",
-                        borderRadius: "100%",
-                    }}
-                />
+            <FlexDiv alignItems="center">
+                <Profile src={account?.profileImage ?? "/"} size="sm" />
                 <Icon type="chevron-down" color={theme.palette.primary[5]} />
             </FlexDiv>
         </FlexDiv>

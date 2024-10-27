@@ -12,10 +12,10 @@ export function useGetTheme() {
             if (language === "English") {
                 setCurrentTheme((prev) => ({
                     ...prev,
-                    typo: typoKorean,
+                    typo: typoEnglish,
                 }));
             } else {
-                setCurrentTheme((prev) => ({ ...prev, typo: typoEnglish }));
+                setCurrentTheme((prev) => ({ ...prev, typo: typoKorean }));
             }
         };
         i18n.on("languageChanged", handleFontFamilyChange);

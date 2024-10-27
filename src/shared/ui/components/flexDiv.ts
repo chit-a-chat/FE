@@ -17,9 +17,9 @@ export const FlexDiv = styled.div<{
     gap?: number;
 }>`
     ${({
-        direction = "row",
-        justifyContent = "center",
-        alignItems = "center",
+        direction = undefined,
+        justifyContent = undefined,
+        alignItems = undefined,
         wrap = "inherit",
         gap,
     }) => css`

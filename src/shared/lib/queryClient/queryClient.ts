@@ -7,8 +7,8 @@ import { QueryClient } from "@tanstack/react-query";
 export const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
-            staleTime: 1000 * 5, // 5초
-            gcTime: 1000 * 60 * 10, // 10분
+            staleTime: 1000 * 60 * 10, // 10분
+            gcTime: 1000 * 60 * 30, // 30분
             retry: (count, error) => {
                 const isRetry = count > 2 ? false : true;
                 /** 추후 삭제 */

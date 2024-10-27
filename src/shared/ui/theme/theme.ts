@@ -394,7 +394,7 @@ const buttonShape = {
     // padding
     padding: {
         // TODO: 버튼 사이즈에 따라 다르게 지정 2024.08.03. 김하늬
-        sm: `10px 20px`,
+        sm: `6px 12px`,
         md: `10px 20px`,
         lg: `14px 20px`,
     },

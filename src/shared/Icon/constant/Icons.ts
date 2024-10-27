@@ -4,13 +4,18 @@ import {
     IconBell,
     IconBellFilled,
     IconBrandBadoo,
+    IconCat,
     IconCheck,
+    IconChefHat,
     IconChevronDown,
     IconChevronUp,
+    IconCross,
     IconHeartHandshake,
     IconInfoCircle,
     IconMapPin,
+    IconNews,
     IconPlus,
+    IconPray,
     IconSearch,
     IconSettings,
     IconSparkles,
@@ -23,6 +28,7 @@ import { default as arrowTarget } from "../customIcons/arrowTarget.png";
 import { default as cardHeart } from "../customIcons/cardHeart.png";
 import { default as googleLogo } from "../customIcons/googleLogo.png";
 import { default as graphBar } from "../customIcons/graphBar.png";
+import { default as instagram } from "../customIcons/instagram.png";
 
 export const ICONS = {
     "arrow-left": IconArrowLeft,
@@ -47,4 +53,11 @@ export const ICONS = {
     "card-heart": cardHeart,
     "graph-bar": graphBar,
     "arrow-target": arrowTarget,
+    instagram: instagram,
+    "map-pin": IconMapPin,
+    cat: IconCat,
+    "chef-hat": IconChefHat,
+    cross: IconCross,
+    news: IconNews,
+    pray: IconPray,
 } as const;
