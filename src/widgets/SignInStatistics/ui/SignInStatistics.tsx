@@ -25,6 +25,7 @@ export const SignInStatistics = ({ children }: PropsWithChildren) => {
                 flex: 1;
                 overflow-y: hidden;
                 padding-top: 40px;
+                align-items: center;
                 @keyframes scroll {
                     0% {
                         transform: translateY(0);

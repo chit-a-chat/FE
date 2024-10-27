@@ -4,7 +4,7 @@ import { StatisticCard } from "./components/StatisticCard";
 
 export const HomeStatistics = () => {
     return (
-        <FlexDiv direction="row" gap={100}>
+        <FlexDiv direction="row" gap={100} justifyContent="center">
             <StatisticCard target="members" />
             <StatisticCard target="matches" />
             <StatisticCard target="numOfLikes" />
