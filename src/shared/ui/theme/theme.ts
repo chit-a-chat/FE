@@ -483,6 +483,10 @@ const lightPushNotificationColor = {
     },
 } as const;
 
+export const shadow = {
+    cardShadow: "0px 0px 6px #0000001a, 0px 0px 10px #0000001a",
+    innerShadowPrimary: "inset 0px 0px 10px rgba(162, 129, 255, 0.4)",
+} as const;
 export const typoKorean = { ...typoKo, ...lightTypoColor, ...fontFamily };
 export const typoEnglish = { ...typoEn, ...lightTypoColor, ...fontFamily };
 
@@ -497,6 +501,7 @@ const light: Theme = {
     spacing,
     typo: i18n.language === "Korean" ? typoKorean : typoEnglish,
     pushNotification: { color: lightPushNotificationColor },
+    shadow: shadow,
 } as const;
 
 export type TSpacing = typeof spacing;
