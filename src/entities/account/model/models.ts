@@ -9,4 +9,5 @@ export interface Account extends CreateAccount {
     name: string;
     profileImage: string | null;
     createdAt: Date;
+    email: string;
 }

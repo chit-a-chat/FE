@@ -1,5 +1,5 @@
 type ProfileProps = {
-    src?: string;
+    src?: string | null;
     size?: "sm" | "md" | "l";
 };
 
@@ -12,7 +12,7 @@ const ProfileSize: Record<NonNullable<ProfileProps["size"]>, string> = {
 export const Profile = ({ src, size = "sm" }: ProfileProps) => {
     return (
         <img
-            src={src}
+            src={src ?? undefined}
             alt="프로필 이미지"
             css={{
                 width: ProfileSize[size],
