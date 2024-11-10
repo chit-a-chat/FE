@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
-import i18n from "@features/i18n";
-
+import i18n from "@shared/i18n";
 import { theme, typoEnglish, typoKorean } from "@shared/ui";
 
 export function useGetTheme() {

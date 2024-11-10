@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from "react";
 
-import i18n from "@features/i18n";
+import i18n from "@shared/i18n";
 
 type I18nProviderProps = {
     children: ReactNode;

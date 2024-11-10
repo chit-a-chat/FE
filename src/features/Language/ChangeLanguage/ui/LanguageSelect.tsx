@@ -1,5 +1,4 @@
-import i18n from "@features/i18n";
-
+import i18n from "@shared/i18n";
 import { Select, TCountryName } from "@shared/ui";
 
 import { Button } from "./LanguageSelect.Button";

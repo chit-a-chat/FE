@@ -1,5 +1,4 @@
-import i18n from "@features/i18n";
-
+import i18n from "@shared/i18n";
 import { TTypoVariant } from "@shared/type";
 
 import { Theme } from "@emotion/react";
