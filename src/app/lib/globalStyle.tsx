@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import i18n from "@features/i18n";
+import i18n from "@shared/i18n";
 
 import { Global, css, useTheme } from "@emotion/react";
 import { Theme } from "@emotion/react";

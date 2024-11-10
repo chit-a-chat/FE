@@ -1,11 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
+import { GNBMyProfile } from "@widgets/GNBMyProfile";
 import { Button } from "@widgets/components";
 
 import { LanguageSelect } from "@features/Language";
 
-import { AccountProfile, useAccountStore } from "@entities/account";
+import { useAccountStore } from "@entities/account";
 
 import { Icon } from "@shared/Icon";
 import { NavBar } from "@shared/ui";
@@ -14,7 +15,7 @@ import { useTheme } from "@emotion/react";
 
 export const GNB = () => {
     const { selectedMenu, menuList } = NavBar.useNavBar();
-    const { isLoggedIn, logout } = useAccountStore();
+    const { isLoggedIn } = useAccountStore();
     const theme = useTheme();
     const { t } = useTranslation("common");
     const navigate = useNavigate();
@@ -33,14 +34,7 @@ export const GNB = () => {
                     <>
                         <Icon type="bell-filled" color={theme.palette.primary[5]} size={"m"} />
                         <NavBar.Divider />
-                        <AccountProfile />
-                        <Button
-                            variant="secondary"
-                            label={"임시 로그아웃"}
-                            onClick={() => {
-                                logout();
-                            }}
-                        />
+                        <GNBMyProfile />
                     </>
                 ) : (
                     <>

@@ -16,7 +16,9 @@ import {
     IconGlassFull,
     IconHeartHandshake,
     IconInfoCircle,
+    IconLogout,
     IconMapPin,
+    IconMessagePlus,
     IconNews,
     IconPlus,
     IconPray,
@@ -80,4 +82,6 @@ export const ICONS = {
     babyCarriage: IconBabyCarriage,
     cookieOff: IconCookieOff,
     reload: IconReload,
+    messagePlus: IconMessagePlus,
+    logout: IconLogout,
 } as const;
