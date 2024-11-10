@@ -1,6 +1,8 @@
 import {
+    IconAdjustmentsHorizontal,
     IconArrowLeft,
     IconArrowRight,
+    IconBabyCarriage,
     IconBell,
     IconBellFilled,
     IconBrandBadoo,
@@ -9,18 +11,25 @@ import {
     IconChefHat,
     IconChevronDown,
     IconChevronUp,
+    IconCookieOff,
     IconCross,
+    IconGlassFull,
     IconHeartHandshake,
     IconInfoCircle,
     IconMapPin,
     IconNews,
     IconPlus,
     IconPray,
+    IconReload,
+    IconRuler2,
     IconSearch,
     IconSettings,
+    IconSmoking,
     IconSparkles,
     IconTriangleInvertedFilled,
     IconUser,
+    IconVocabulary,
+    IconWoman,
     IconX,
 } from "@tabler/icons-react";
 
@@ -28,11 +37,13 @@ import { default as arrowTarget } from "../customIcons/arrowTarget.png";
 import { default as cardHeart } from "../customIcons/cardHeart.png";
 import { default as googleLogo } from "../customIcons/googleLogo.png";
 import { default as graphBar } from "../customIcons/graphBar.png";
+import { default as heartCircle } from "../customIcons/heartCircle.svg";
 import { default as instagram } from "../customIcons/instagram.png";
 
 export const ICONS = {
     "arrow-left": IconArrowLeft,
     "arrow-right": IconArrowRight,
+    "adjustments-horizontal": IconAdjustmentsHorizontal,
     bell: IconBell,
     "bell-filled": IconBellFilled,
     check: IconCheck,
@@ -60,4 +71,13 @@ export const ICONS = {
     cross: IconCross,
     news: IconNews,
     pray: IconPray,
+    "heart-circle": heartCircle,
+    woman: IconWoman,
+    ruler2: IconRuler2,
+    vocabulary: IconVocabulary,
+    glassFull: IconGlassFull,
+    smoking: IconSmoking,
+    babyCarriage: IconBabyCarriage,
+    cookieOff: IconCookieOff,
+    reload: IconReload,
 } as const;
