@@ -20,7 +20,7 @@ export const MatchRecommendationCard = ({ match }: MatchCardProps) => {
             css={{
                 flex: 1,
                 padding: "10px",
-                boxShadow: "0px 0px 6px #0000001a, 0px 0px 10px #0000001a",
+                boxShadow: theme.shadow.cardShadow,
                 backgroundColor: theme.palette.common.white,
                 borderRadius: "10px",
             }}

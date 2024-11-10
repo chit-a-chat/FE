@@ -14,6 +14,8 @@ type BadgeProps = PropsWithChildren<{
     fontVariant?: TTypoVariant;
     padding?: string;
     isShadow?: boolean;
+    gap?: number;
+    onClick?: () => void;
 }>;
 
 const RadiusToBorderRadius = {
@@ -31,6 +33,7 @@ export const Badge = ({
     fontVariant = "tag/regular",
     padding = "5px 12px",
     isShadow = false,
+    gap = 0,
     ...props
 }: BadgeProps) => {
     const { stringChildren, frontChildren, backChildren } = useMemo(
@@ -70,6 +73,7 @@ export const Badge = ({
                 borderRadius: RadiusToBorderRadius[radius],
                 padding,
                 boxShadow: isShadow ? "0px 0px 5px #C3B2FF" : undefined,
+                gap: gap ? `${gap}px` : undefined,
             }}
             {...props}
         >

@@ -22,7 +22,7 @@ export const HomeMatchRequests = () => {
                 flex: 1,
                 paddingTop: "10px",
                 backgroundColor: theme.palette.common.white,
-                boxShadow: "0px 0px 6px #0000001a, 0px 0px 10px #0000001a",
+                boxShadow: theme.shadow.cardShadow,
                 borderRadius: "10px",
                 position: "relative",
             }}

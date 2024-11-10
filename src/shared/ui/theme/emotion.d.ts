@@ -3,7 +3,7 @@ import { TButtonStatus, TButtonVariant, TPushNotification, TTypoVariant } from "
 import "@emotion/react";
 
 import { TLightPalette } from "./palette";
-import { TButtonShape, TSpacing } from "./theme";
+import { TButtonShape, TSpacing, shadow } from "./theme";
 
 declare module "@emotion/react" {
     export interface Theme {
@@ -52,5 +52,6 @@ declare module "@emotion/react" {
                 } & { title: string; content: string };
             };
         };
+        shadow: typeof shadow;
     }
 }

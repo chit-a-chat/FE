@@ -10,7 +10,7 @@ export const HomeMatcheRecommendations = () => {
         <FlexDiv
             direction="column"
             css={{
-                boxShadow: "0px 0px 6px #0000001a, 0px 0px 10px #0000001a",
+                boxShadow: theme.shadow.cardShadow,
                 borderRadius: "10px",
                 background: theme.palette.background.white,
                 paddingTop: "10px",

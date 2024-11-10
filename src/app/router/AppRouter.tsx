@@ -1,5 +1,6 @@
 import { Navigate, Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 
+import { Explore } from "@pages/Explore";
 import { Home } from "@pages/Home";
 import { SignIn } from "@pages/SignIn";
 
@@ -34,7 +35,7 @@ export function AppRouter() {
                 },
                 {
                     path: "/explore",
-                    element: <div>explore</div>,
+                    element: <Explore />,
                 },
                 {
                     path: "/matches",
