@@ -1,5 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 import { getHoursFromNow } from "@widgets/HomeMatchRequests/lib/getHoursFromNow";
 
+import { useAccountStore } from "@entities/account";
 import { MatchRequest } from "@entities/match/model/models";
 
 import { Icon } from "@shared/Icon";
@@ -13,6 +16,8 @@ type MatchUpdateCardProps = {
 
 export const MatchUpdateCard = ({ matchRequest }: MatchUpdateCardProps) => {
     const theme = useTheme();
+    const { t } = useTranslation("home");
+    const { account } = useAccountStore();
 
     return (
         <FlexDiv
@@ -38,14 +43,16 @@ export const MatchUpdateCard = ({ matchRequest }: MatchUpdateCardProps) => {
                             {matchRequest.name}
                         </Text>
                         <Text typoVariant="supporting/regular" color={theme.palette.grey[5]}>
-                            {getHoursFromNow(matchRequest.requestTime)} hours ago
+                            {getHoursFromNow(matchRequest.requestTime)}
+                            {t("TimeSuffix")}
                         </Text>
                     </FlexDiv>
                     <Text typoVariant="body/regular" color={theme.palette.grey[5]}>
-                        <span css={{ color: theme.palette.primary[5] }}>{matchRequest.name} </span>
-                        liked your photo!
-                        <br />
-                        Would you like to match with this person?
+                        <span css={{ color: theme.palette.primary[5] }}>
+                            {matchRequest.name}
+                            {t("NameSuffix")}
+                        </span>
+                        {t("UpdateCardContent", { userName: account?.name })}
                     </Text>
                 </FlexDiv>
             </FlexDiv>
@@ -64,7 +71,7 @@ export const MatchUpdateCard = ({ matchRequest }: MatchUpdateCardProps) => {
                     gap={2}
                 >
                     <Text typoVariant="link/regular" color={theme.palette.red[6]}>
-                        Reject
+                        {t("UpdateCardRejectButton")}
                     </Text>
                     <Icon type="x" color={theme.palette.red[6]} size={"m"} />
                 </FlexDiv>
@@ -81,7 +88,7 @@ export const MatchUpdateCard = ({ matchRequest }: MatchUpdateCardProps) => {
                     gap={2}
                 >
                     <Text typoVariant="link/regular" color={theme.palette.primary[6]}>
-                        Accept
+                        {t("UpdateCardAcceptButton")}
                     </Text>
                     <Icon type="check" color={theme.palette.primary[6]} size={"m"} />
                 </FlexDiv>

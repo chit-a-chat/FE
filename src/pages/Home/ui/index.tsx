@@ -35,8 +35,12 @@ export function Home() {
             {isLoggedIn ? (
                 <>
                     <FlexDiv direction="column" alignItems="flex-start" gap={2}>
-                        <Text typoVariant="h1/bold">Hello, {account?.name}</Text>
-                        <Text typoVariant="h2/medium">Here is your update summary!</Text>
+                        <Text typoVariant="h1/bold">
+                            {t("LoginTitle")}
+                            {account?.name}
+                            {t("NameSuffix")}
+                        </Text>
+                        <Text typoVariant="h2/medium">{t("LoginSubtitle")}</Text>
                     </FlexDiv>
                     <FlexDiv direction="row" gap={10} css={{ minHeight: 0 }}>
                         <HomeMatcheRecommendations />

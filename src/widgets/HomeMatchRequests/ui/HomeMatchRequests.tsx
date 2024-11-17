@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import { MatchRequestList, useMatchRequests } from "@entities/match";
 
 import { Badge, FlexDiv, Text } from "@shared/ui";
@@ -14,6 +16,7 @@ export const HomeMatchRequests = () => {
         initialData: { matchRequests: [] },
         initialDataUpdatedAt: 0,
     });
+    const { t } = useTranslation("home");
     return (
         <FlexDiv
             direction="column"
@@ -29,7 +32,7 @@ export const HomeMatchRequests = () => {
         >
             <FlexDiv alignItems="center" gap={10} css={{ paddingLeft: "20px" }}>
                 <Text typoVariant="h3/medium" color={theme.palette.common.black}>
-                    Update
+                    {t("UpdateTitle")}
                 </Text>
 
                 <Text
@@ -52,7 +55,7 @@ export const HomeMatchRequests = () => {
                     color={theme.palette.common.black}
                     isShadow
                 >
-                    Matching requests
+                    {t("MatchRequestBadge")}
                 </Badge>
                 <Badge
                     radius="full"
@@ -60,7 +63,7 @@ export const HomeMatchRequests = () => {
                     color={theme.palette.common.black}
                     isShadow
                 >
-                    Like I received
+                    {t("ReceivedLikeBadge")}
                 </Badge>
             </FlexDiv>
             <MatchRequestList />

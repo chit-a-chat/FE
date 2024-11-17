@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import { Button } from "@widgets/components";
 
 import { MatchRecommend } from "@entities/match/model/models";
@@ -13,6 +15,7 @@ type MatchCardProps = { match: MatchRecommend };
 
 export const MatchRecommendationCard = ({ match }: MatchCardProps) => {
     const theme = useTheme();
+    const { t } = useTranslation("home");
     return (
         <FlexDiv
             direction="row"
@@ -47,7 +50,8 @@ export const MatchRecommendationCard = ({ match }: MatchCardProps) => {
                     <FlexDiv direction="column" gap={4}>
                         <FlexDiv direction="row" justifyContent="space-between">
                             <Text typoVariant="h4/regular" color={theme.palette.common.black}>
-                                {match.name}, {match.age}s
+                                {match.name}, {match.age}
+                                {t("AgeSuffix")}
                             </Text>
                             <Icon type="instagram" />
                         </FlexDiv>
@@ -60,23 +64,33 @@ export const MatchRecommendationCard = ({ match }: MatchCardProps) => {
                             >
                                 <Icon type="map-pin" color={theme.palette.grey[5]} />
                                 <Text typoVariant="body/regular" color={theme.palette.grey[5]}>
-                                    {match.distance} km away from you
+                                    {match.distance} km {t("DistanceSuffix")}
                                 </Text>
                             </FlexDiv>
                             <Text typoVariant="link/regular" color={theme.palette.primary[5]}>
-                                View more
+                                {t("RecommendationCardViewMoreButton")}
                             </Text>
                         </FlexDiv>
                     </FlexDiv>
                     <Text typoVariant="body/medium" color={theme.palette.grey[8]}>
-                        Common interest
+                        {t("RecommendationCardInterest")}
                     </Text>
                     <MatchRecommendationCard.InterestList interests={match.interests} />
                 </FlexDiv>
 
                 <FlexDiv direction="row" justifyContent="space-between">
-                    <Button type="button" label="Not interested" variant="secondary" size="sm" />
-                    <Button type="button" label="Request Match" variant="primary" size="sm" />
+                    <Button
+                        type="button"
+                        label={t("RecommendationCardNotInterestedButton")}
+                        variant="secondary"
+                        size="sm"
+                    />
+                    <Button
+                        type="button"
+                        label={t("RecommendationCardRequestMatchButton")}
+                        variant="primary"
+                        size="sm"
+                    />
                 </FlexDiv>
             </FlexDiv>
         </FlexDiv>
