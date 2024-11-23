@@ -2,6 +2,7 @@ import { Navigate, Outlet, RouterProvider, createBrowserRouter } from "react-rou
 
 import { Explore } from "@pages/Explore";
 import { Home } from "@pages/Home";
+import { Reviews } from "@pages/Reviews";
 import { SignIn } from "@pages/SignIn";
 
 import { Footer } from "@widgets/Foooter";
@@ -34,21 +35,35 @@ export function AppRouter() {
                     element: <Home />,
                 },
                 {
-                    path: "/explore",
+                    path: "explore",
                     element: <Explore />,
                 },
                 {
-                    path: "/matches",
+                    path: "matches",
                     element: <div>matches</div>,
                 },
                 {
-                    path: "/community",
+                    path: "community",
                     element: <div>community</div>,
+                },
+                {
+                    path: "profile",
+                    children: [
+                        { index: true, element: <Navigate to="reviews" replace /> },
+                        {
+                            path: "reviews",
+                            element: <Reviews />,
+                        },
+                        {
+                            path: "*",
+                            element: <Navigate to="reviews" replace />,
+                        },
+                    ],
                 },
             ],
         },
         {
-            path: "/sign-in",
+            path: "sign-in",
             element: (
                 <Layout>
                     <main css={{ minHeight: 0 }}>
@@ -57,6 +72,7 @@ export function AppRouter() {
                 </Layout>
             ),
         },
+
         { path: "*", element: <Navigate to="/" replace /> },
     ]);
 
