@@ -1,14 +1,14 @@
+import { SimpleReview } from "@entities/review/model/models";
+
 import { FlexDiv, Text } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
 
-import { Review } from "../model/models";
-
 type ReviewCardProps = {
-    review: Review;
+    review: SimpleReview;
 };
 
-export const ReviewCard = ({ review }: ReviewCardProps) => {
+export const SimpleReviewCard = ({ review }: ReviewCardProps) => {
     const theme = useTheme();
     return (
         <FlexDiv

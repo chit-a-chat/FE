@@ -1,2 +1,2 @@
-export { type Review } from "./model/models";
-export { ReviewCard } from "./ui/ReviewCard";
+export { type Review, type Reviewer, type SimpleReview, type Reviewee } from "./model/models";
+export { SimpleReviewCard } from "./ui/SimpleReviewCard/SimpleReviewCard";

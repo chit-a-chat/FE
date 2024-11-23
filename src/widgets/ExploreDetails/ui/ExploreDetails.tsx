@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ExploreLikesButton } from "@features/Explore/LikeExploredUser";
 
 import { useExploreStore } from "@entities/explore";
-import { ReviewCard } from "@entities/review";
+import { SimpleReviewCard } from "@entities/review";
 
 import { Icon } from "@shared/Icon";
 import { Badge, FlexDiv, Text } from "@shared/ui";
@@ -140,7 +140,7 @@ export const ExploreDetails = () => {
                         </Badge>
                     </FlexDiv>
                     {reviews.map((aReview, index) => (
-                        <ReviewCard review={aReview} key={`review-${index}`} />
+                        <SimpleReviewCard review={aReview} key={`review-${index}`} />
                     ))}
                 </FlexDiv>
                 <FlexDiv

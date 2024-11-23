@@ -1,4 +1,4 @@
-import { Review } from "@entities/review";
+import { SimpleReview } from "@entities/review";
 
 import { UserProfileIcons } from "./consts";
 
@@ -12,7 +12,7 @@ export type User = {
     lookingFor: string[];
     moreAboutMe: Record<keyof typeof UserProfileIcons | string, string>;
     languages: string[];
-    reviews: Review[];
+    reviews: SimpleReview[];
     interests: string[];
     images: string[];
 };
