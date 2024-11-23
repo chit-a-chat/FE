@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import { useAccountStore } from "@entities/account";
 
 import { Divider, FlexDiv } from "@shared/ui";
@@ -10,6 +12,7 @@ import { DropdownProfile } from "./DropdownProfile";
 export const GNBProfileDropdown = () => {
     const theme = useTheme();
     const { logout } = useAccountStore();
+    const navigate = useNavigate();
     return (
         <FlexDiv
             direction="column"
@@ -24,8 +27,14 @@ export const GNBProfileDropdown = () => {
             <DropdownProfile />
             <Divider thickness={2} />
             <DropdownItem icon="user" label="Your profile" onClick={() => {}} />
-            <DropdownItem icon="messagePlus" label="Your calendar" onClick={() => {}} />
-            <DropdownItem icon="messagePlus" label="Reviews" onClick={() => {}} />
+            {/* <DropdownItem icon="messagePlus" label="Your calendar" onClick={() => {}} /> */}
+            <DropdownItem
+                icon="messagePlus"
+                label="Reviews"
+                onClick={() => {
+                    navigate("/profile/reviews");
+                }}
+            />
             <DropdownItem icon="setting" label="Settings" onClick={() => {}} />
             <Divider thickness={2} />
             <DropdownItem icon="logout" label="Logout" onClick={logout} />
