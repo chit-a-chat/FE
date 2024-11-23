@@ -26,7 +26,7 @@ export const MatchRecommendationCard = ({ match }: MatchCardProps) => {
             }}
         >
             <FlexDiv direction="column" gap={10} justifyContent="center">
-                <Profile src={match.profileImages[0]} size="l" />
+                <Profile src={match.profileImages[0]} size="xl" />
                 <FlexDiv gap={10} justifyContent="center">
                     <Icon
                         type="chevron-down-fill"
