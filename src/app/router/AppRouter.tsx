@@ -2,6 +2,7 @@ import { Navigate, Outlet, RouterProvider, createBrowserRouter } from "react-rou
 
 import { Explore } from "@pages/Explore";
 import { Home } from "@pages/Home";
+import { MyProfile } from "@pages/MyProfile";
 import { Reviews } from "@pages/Reviews";
 import { SignIn } from "@pages/SignIn";
 
@@ -53,6 +54,10 @@ export function AppRouter() {
                         {
                             path: "reviews",
                             element: <Reviews />,
+                        },
+                        {
+                            path: "my-profile",
+                            element: <MyProfile />,
                         },
                         {
                             path: "*",
