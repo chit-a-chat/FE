@@ -13,3 +13,4 @@ export { Profile } from "./Profile/Profile";
 export { DropdownMenu } from "./Dropdown/DropdownMenu";
 export { Divider } from "./Divider/Divider";
 export { Tabs } from "./Tabs/Tabs";
+export { StarRating } from "./StarRating/StarRating";
