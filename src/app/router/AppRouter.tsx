@@ -71,7 +71,7 @@ export function AppRouter() {
             path: "sign-in",
             element: (
                 <Layout>
-                    <main css={{ minHeight: 0 }}>
+                    <main css={{ minHeight: 0, maxHeight: "100vh" }}>
                         <SignIn />
                     </main>
                 </Layout>
