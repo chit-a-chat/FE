@@ -1,4 +1,7 @@
-import { ChipInput, Divider, FlexDiv, Text, Textarea } from "@shared/ui";
+import { useState } from "react";
+
+import { Icon } from "@shared/Icon";
+import { Badge, ChipInput, Divider, FlexDiv, Text, Textarea } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
 
@@ -29,7 +32,12 @@ export const MyProfile = () => {
         Diet: ["Vegetarian"],
         Allegies: ["Nuts"],
     };
-
+    const [profileImages, setProfileImages] = useState<(string | null)[]>([
+        "https://images.unsplash.com/photo-1712847331925-bf0e3fd2b7ae?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        null,
+        null,
+        null,
+    ]);
     return (
         <section
             css={{
@@ -66,30 +74,112 @@ export const MyProfile = () => {
                 <FlexDiv direction="column" gap={10} id="photo">
                     <ProfileLabelCaption label="Photo" caption="Highlight your true self." />
                     <FlexDiv direction="row" gap={20}>
-                        <div
-                            css={{
-                                borderRadius: "30px",
-                                boxShadow: theme.shadow.profileShadow,
-                                width: "315px",
-                                height: "350px",
-                                backgroundColor:
-                                    "linear-gradient(151.06deg, rgba(255, 255, 255, 0.5) 3.57%, rgba(255, 255, 255, 0.2) 97.69%)",
-                                padding: "9px",
-                            }}
-                        >
-                            <img
-                                src={
-                                    "https://images.unsplash.com/photo-1712847331925-bf0e3fd2b7ae?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                }
+                        {profileImages.map((aUrl, index) => (
+                            <label
                                 css={{
-                                    objectFit: "cover",
-                                    width: "100%",
-                                    height: "100%",
+                                    display: "flex",
                                     borderRadius: "30px",
+                                    boxShadow: theme.shadow.profileShadow,
+                                    width: "315px",
+                                    height: "350px",
+                                    backgroundColor:
+                                        "linear-gradient(151.06deg, rgba(255, 255, 255, 0.5) 3.57%, rgba(255, 255, 255, 0.2) 97.69%)",
+                                    padding: "9px",
+                                    position: "relative",
+                                    cursor: aUrl ? undefined : "pointer",
+                                    "&.on-file-drag": {
+                                        border: `1px solid ${theme.palette.primary[6]}`,
+                                    },
                                 }}
-                                alt="profile-image"
-                            />
-                        </div>
+                                onDragOver={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                }}
+                                onDragLeave={(e) => {
+                                    if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                                        e.currentTarget.classList.remove("on-file-drag");
+                                    }
+                                }}
+                                onDragEnter={(e) => {
+                                    if (
+                                        !e.currentTarget.contains(e.relatedTarget as Node) &&
+                                        e.relatedTarget
+                                    ) {
+                                        e.currentTarget.classList.add("on-file-drag");
+                                    }
+                                }}
+                                onDrop={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    const droppedFiles = e.dataTransfer.files;
+                                    if (droppedFiles.length > 0) {
+                                        const imageFile = Array.from(droppedFiles).find((file) =>
+                                            file.type.startsWith("image/")
+                                        );
+                                        if (imageFile) {
+                                            const imageURL = URL.createObjectURL(imageFile);
+                                            setProfileImages((prev) => {
+                                                return [
+                                                    ...prev.slice(0, index),
+                                                    imageURL,
+                                                    ...prev.slice(index + 1),
+                                                ];
+                                            });
+                                        }
+                                    }
+                                    e.currentTarget.classList.remove("on-file-drag");
+                                }}
+                                onDragEnd={(e) => {
+                                    e.currentTarget.classList.remove("on-file-drag");
+                                }}
+                                key={`photo-${index}`}
+                                htmlFor={`profile-file-${index}`}
+                            >
+                                {aUrl ? (
+                                    <img
+                                        src={aUrl}
+                                        css={{
+                                            objectFit: "cover",
+                                            width: "100%",
+                                            height: "100%",
+                                            borderRadius: "30px",
+                                        }}
+                                        alt="profile-image"
+                                    />
+                                ) : (
+                                    <Icon type="plus" css={{ margin: "auto" }} size={"xl"} />
+                                )}
+                                <input
+                                    type="file"
+                                    id={`profile-file-${index}`}
+                                    hidden
+                                    name={`profile-file-${index}`}
+                                    accept="image/*"
+                                    onChange={(e) => {
+                                        if (e.currentTarget.files?.length) {
+                                            const newImage = e.currentTarget.files[0];
+                                            const imageURL = URL.createObjectURL(newImage);
+                                            setProfileImages((prev) => {
+                                                return [
+                                                    ...prev.slice(0, index),
+                                                    imageURL,
+                                                    ...prev.slice(index + 1),
+                                                ];
+                                            });
+                                        }
+                                    }}
+                                />
+                                <Badge
+                                    radius="full"
+                                    backgroundColor={theme.palette.grey[0]}
+                                    fontVariant="tag/regular"
+                                    color={theme.palette.common.black}
+                                    css={{ position: "absolute", left: "26px", bottom: "20px" }}
+                                >
+                                    {index ? index + 1 : "Main"}
+                                </Badge>
+                            </label>
+                        ))}
                     </FlexDiv>
                 </FlexDiv>
                 <FlexDiv id="Bio" gap={10} direction="column">
