@@ -15,8 +15,13 @@ import { useTheme } from "@emotion/react";
 
 import { Badge } from "../Badge/Badge";
 
-export const ChipInput = () => {
-    const [value, setValue] = useState<string[]>([]);
+type ChipInputProps = {
+    defaultValue?: string[];
+    onEditFinish?: (values: string[]) => void;
+};
+
+export const ChipInput = ({ defaultValue = [], onEditFinish }: ChipInputProps) => {
+    const [value, setValue] = useState<string[]>(defaultValue);
     const [isEditMode, setIsEditMode] = useState<boolean>(false);
     const theme = useTheme();
     const isAfterDelete = useRef<boolean>(false);
@@ -43,6 +48,9 @@ export const ChipInput = () => {
                     }
                 });
                 e.currentTarget.scrollTo({ left: 0 });
+                if (onEditFinish) {
+                    onEditFinish(value);
+                }
                 setIsEditMode(false);
             }
             if (inputKey === "Enter") {

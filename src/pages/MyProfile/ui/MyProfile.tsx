@@ -1,4 +1,4 @@
-import { ChipInput, Divider, FlexDiv, Text } from "@shared/ui";
+import { ChipInput, Divider, FlexDiv, Text, Textarea } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
 
@@ -6,6 +6,30 @@ import { ProfileLabelCaption } from "./component/ProfileLabelCaption";
 
 export const MyProfile = () => {
     const theme = useTheme();
+    const AboutYou = {
+        Work: ["Graphic designer at Google"],
+        Education: ["Oxford University"],
+        Location: ["London, United Kingdom"],
+        Gender: ["Women"],
+        Sexuality: ["Heterosexual"],
+        LookingFor: ["Long term relationship"],
+        Height: ["160cm / 5.2 inches"],
+        Age: ["Between 20-30"],
+        MBTI: ["INTJ"],
+    };
+    const LifeStyle = {
+        Interests: ["Tennis", "Football", "Running", "Music", "Pub"],
+        Languages: ["English", "Spanish", "French", "German"],
+        Pet: ["Pet owner"],
+        Smoking: ["I smoke sometimes"],
+        WantsKid: ["Yes, not very soon tho"],
+        Drinking: ["I drink sometimes"],
+        Politic: ["Democrat"],
+        Religion: ["Catholic"],
+        Diet: ["Vegetarian"],
+        Allegies: ["Nuts"],
+    };
+
     return (
         <section
             css={{
@@ -68,8 +92,14 @@ export const MyProfile = () => {
                         </div>
                     </FlexDiv>
                 </FlexDiv>
-                <FlexDiv id="Bio">
+                <FlexDiv id="Bio" gap={10} direction="column">
                     <ProfileLabelCaption label="Bio" caption="Write about yourself" />
+                    <Textarea
+                        rows={2}
+                        defaultValue={
+                            "Hey, I’m Alex! I’m a graphic designer who loves traveling, cooking, and hiking. I’m upbeat, curious, and always up for new adventures. Looking for someone who enjoys deep conversations and spontaneous outings. Let’s connect and share some laughs!"
+                        }
+                    />
                 </FlexDiv>
                 <FlexDiv className="form-row" gap={20}>
                     <FlexDiv id="Work">
@@ -77,19 +107,21 @@ export const MyProfile = () => {
                             label="Work"
                             caption="Where do you work and what position?"
                         />
-                        <ChipInput />
+                        <ChipInput defaultValue={AboutYou.Work} />
                     </FlexDiv>
                     <FlexDiv id="Education">
                         <ProfileLabelCaption
                             label="Education"
                             caption="Share specific interests about the things you love."
                         />
+                        <ChipInput defaultValue={AboutYou.Education} />
                     </FlexDiv>
                     <FlexDiv id="Location">
                         <ProfileLabelCaption
                             label="Location"
                             caption="Where do you work and what position?"
                         />
+                        <ChipInput defaultValue={AboutYou.Location} />
                     </FlexDiv>
                 </FlexDiv>
                 <FlexDiv className="form-row" gap={20}>
@@ -98,18 +130,21 @@ export const MyProfile = () => {
                             label="Gender"
                             caption="Where do you work and what position?"
                         />
+                        <ChipInput defaultValue={AboutYou.Gender} />
                     </FlexDiv>
                     <FlexDiv id="Sexuality">
                         <ProfileLabelCaption
                             label="Sexuality"
                             caption="Where do you work and what position?"
                         />
+                        <ChipInput defaultValue={AboutYou.Sexuality} />
                     </FlexDiv>
                     <FlexDiv id="I am looking for">
                         <ProfileLabelCaption
                             label="I am looking for.."
                             caption="Where do you work and what position?"
                         />
+                        <ChipInput defaultValue={AboutYou.LookingFor} />
                     </FlexDiv>
                 </FlexDiv>
                 <FlexDiv className="form-row" gap={20}>
@@ -118,18 +153,21 @@ export const MyProfile = () => {
                             label="Height"
                             caption="Where do you work and what position?"
                         />
+                        <ChipInput defaultValue={AboutYou.Height} />
                     </FlexDiv>
                     <FlexDiv id="Age">
                         <ProfileLabelCaption
                             label="Age"
                             caption="Where do you work and what position?"
                         />
+                        <ChipInput defaultValue={AboutYou.Age} />
                     </FlexDiv>
                     <FlexDiv id="MBTI">
                         <ProfileLabelCaption
                             label="MBTI"
                             caption="Where do you work and what position?"
                         />
+                        <ChipInput defaultValue={AboutYou.MBTI} />
                     </FlexDiv>
                 </FlexDiv>
                 <Divider />
@@ -137,24 +175,38 @@ export const MyProfile = () => {
                 <Text typoVariant="h3/medium" color={theme.palette.common.black}>
                     Your life style
                 </Text>
-                <FlexDiv id="Specific interests">
-                    <ProfileLabelCaption
-                        label="Specific interests"
-                        caption="Share specific things you like to share with someone"
-                    />
+                <FlexDiv className="form-row" gap={20}>
+                    <FlexDiv id="Specific interests">
+                        <ProfileLabelCaption
+                            label="Specific interests"
+                            caption="Share specific things you like to share with someone"
+                        />
+                        <ChipInput defaultValue={LifeStyle.Interests} />
+                    </FlexDiv>
+                    <FlexDiv id="Language">
+                        <ProfileLabelCaption
+                            label="Language I can speak"
+                            caption="Choose the languages you know."
+                        />
+                        <ChipInput defaultValue={LifeStyle.Languages} />
+                    </FlexDiv>
                 </FlexDiv>
                 <FlexDiv className="form-row" gap={20}>
                     <FlexDiv id="Pet">
                         <ProfileLabelCaption label="Pet" caption="Do you have any pets?" />
+                        <ChipInput defaultValue={LifeStyle.Pet} />
                     </FlexDiv>
                     <FlexDiv id="Smoking">
                         <ProfileLabelCaption label="Smoking" caption="Do you smoke?" />
+                        <ChipInput defaultValue={LifeStyle.Smoking} />
                     </FlexDiv>
                     <FlexDiv id="Wants kid">
                         <ProfileLabelCaption label="Wants kid?" caption="Do you work out?" />
+                        <ChipInput defaultValue={LifeStyle.WantsKid} />
                     </FlexDiv>
                     <FlexDiv id="Drinking">
                         <ProfileLabelCaption label="Drinking" caption="Do you drink?" />
+                        <ChipInput defaultValue={LifeStyle.Drinking} />
                     </FlexDiv>
                 </FlexDiv>
                 <FlexDiv className="form-row" gap={20}>
@@ -163,18 +215,22 @@ export const MyProfile = () => {
                             label="Politic"
                             caption="What’s your political side?"
                         />
+                        <ChipInput defaultValue={LifeStyle.Politic} />
                     </FlexDiv>
                     <FlexDiv id="Religion">
                         <ProfileLabelCaption label="Religion" caption="What do you believe in?" />
+                        <ChipInput defaultValue={LifeStyle.Religion} />
                     </FlexDiv>
                     <FlexDiv id="Diet">
                         <ProfileLabelCaption label="Diet" caption="What is your diet?" />
+                        <ChipInput defaultValue={LifeStyle.Diet} />
                     </FlexDiv>
                     <FlexDiv id="Allegies">
                         <ProfileLabelCaption
                             label="Allegies"
                             caption="Do you have any allergies?"
                         />
+                        <ChipInput defaultValue={LifeStyle.Allegies} />
                     </FlexDiv>
                 </FlexDiv>
             </FlexDiv>
