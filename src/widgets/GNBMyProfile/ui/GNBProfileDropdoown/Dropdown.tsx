@@ -41,7 +41,13 @@ export const GNBProfileDropdown = () => {
                     navigate("/profile/reviews");
                 }}
             />
-            <DropdownItem icon="setting" label="Settings" onClick={() => {}} />
+            <DropdownItem
+                icon="setting"
+                label="Settings"
+                onClick={() => {
+                    navigate("/profile/setting");
+                }}
+            />
             <Divider thickness={2} />
             <DropdownItem icon="logout" label="Logout" onClick={logout} />
         </FlexDiv>
