@@ -4,6 +4,7 @@ import { Explore } from "@pages/Explore";
 import { Home } from "@pages/Home";
 import { MyProfile } from "@pages/MyProfile";
 import { Reviews } from "@pages/Reviews";
+import { Setting } from "@pages/Setting";
 import { SignIn } from "@pages/SignIn";
 
 import { Footer } from "@widgets/Foooter";
@@ -58,6 +59,10 @@ export function AppRouter() {
                         {
                             path: "my-profile",
                             element: <MyProfile />,
+                        },
+                        {
+                            path: "setting",
+                            element: <Setting />,
                         },
                         {
                             path: "*",
