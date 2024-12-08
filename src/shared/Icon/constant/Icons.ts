@@ -13,6 +13,7 @@ import {
     IconChevronUp,
     IconCookieOff,
     IconCross,
+    IconEdit,
     IconGlassFull,
     IconHeartHandshake,
     IconInfoCircle,
@@ -94,4 +95,5 @@ export const ICONS = {
     starHalfFilled: IconStarHalfFilled,
     "trending-up": IconTrendingUp,
     "trending-down": IconTrendingDown,
+    edit: IconEdit,
 } as const;

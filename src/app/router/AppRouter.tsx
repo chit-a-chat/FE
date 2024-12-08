@@ -2,6 +2,7 @@ import { Navigate, Outlet, RouterProvider, createBrowserRouter } from "react-rou
 
 import { Explore } from "@pages/Explore";
 import { Home } from "@pages/Home";
+import { MyProfile } from "@pages/MyProfile";
 import { Reviews } from "@pages/Reviews";
 import { SignIn } from "@pages/SignIn";
 
@@ -55,6 +56,10 @@ export function AppRouter() {
                             element: <Reviews />,
                         },
                         {
+                            path: "my-profile",
+                            element: <MyProfile />,
+                        },
+                        {
                             path: "*",
                             element: <Navigate to="reviews" replace />,
                         },
@@ -66,7 +71,7 @@ export function AppRouter() {
             path: "sign-in",
             element: (
                 <Layout>
-                    <main css={{ minHeight: 0 }}>
+                    <main css={{ minHeight: 0, maxHeight: "100vh" }}>
                         <SignIn />
                     </main>
                 </Layout>

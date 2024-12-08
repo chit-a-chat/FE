@@ -26,7 +26,13 @@ export const GNBProfileDropdown = () => {
         >
             <DropdownProfile />
             <Divider thickness={2} />
-            <DropdownItem icon="user" label="Your profile" onClick={() => {}} />
+            <DropdownItem
+                icon="user"
+                label="Your profile"
+                onClick={() => {
+                    navigate("/profile/my-profile");
+                }}
+            />
             {/* <DropdownItem icon="messagePlus" label="Your calendar" onClick={() => {}} /> */}
             <DropdownItem
                 icon="messagePlus"

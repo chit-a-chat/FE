@@ -4,8 +4,7 @@ import { media } from "../theme/media";
 
 export const Layout = styled.div`
     width: 1440px;
-    height: 100vh;
-    min-height: 1024px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
