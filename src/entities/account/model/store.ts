@@ -12,9 +12,12 @@ interface AccountStore extends LoginState {
     account: Account | null;
     fetchAccount(): Promise<void>;
     createAccount(account: CreateAccount): Promise<void>;
+    changeNickname(newName: string): Promise<void>;
+    changePassword(currentPwd: string, newPwd: string, confirmPwd: string): Promise<void>;
+    deleteAccount(): Promise<void>;
 }
 
-export const useAccountStore = create<AccountStore>((set) => ({
+export const useAccountStore = create<AccountStore>((set, get) => ({
     isLoggedIn: false,
     account: null,
     login: async (id, password) => {
@@ -32,9 +35,27 @@ export const useAccountStore = create<AccountStore>((set) => ({
             },
         });
     },
-    logout: () => set({ isLoggedIn: false, account: null }),
+    logout: () => {
+        set({ isLoggedIn: false, account: null });
+    },
     fetchAccount: async () => {},
     createAccount: async (account) => {
         console.log(account);
     },
+    changeNickname: async (newName) => {
+        const { account, isLoggedIn } = get();
+        if (!(isLoggedIn && account)) throw new Error("로그아웃 상태입니다.");
+        if (account.name === newName) return;
+        set({ account: { ...account, name: newName } });
+    },
+    changePassword: async (currentPwd, newPwd, confirmPwd) => {
+        const { account, isLoggedIn } = get();
+        if (!(isLoggedIn && account)) throw new Error("로그아웃 상태입니다.");
+        if (newPwd !== confirmPwd) {
+            console.log("비밀번호 불일치");
+            return;
+        }
+        console.log("비밀번호 변경 완료", currentPwd, newPwd, confirmPwd);
+    },
+    deleteAccount: async () => {},
 }));
