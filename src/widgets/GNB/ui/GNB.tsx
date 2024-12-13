@@ -2,14 +2,13 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 import { GNBMyProfile } from "@widgets/GNBMyProfile";
-import { Button } from "@widgets/components";
 
 import { LanguageSelect } from "@features/Language";
 
 import { useAccountStore } from "@entities/account";
 
 import { Icon } from "@shared/Icon";
-import { NavBar } from "@shared/ui";
+import { Button, NavBar } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
 

@@ -2,10 +2,9 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 import { ExploreDetails } from "@widgets/ExploreDetails";
-import { Button } from "@widgets/components";
 
 import { Icon } from "@shared/Icon";
-import { FlexDiv, Text } from "@shared/ui";
+import { Button, FlexDiv, Text } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
 

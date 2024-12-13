@@ -3,11 +3,9 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
-import { Button } from "@widgets/components";
-
 import { useAccountStore } from "@entities/account";
 
-import { FlexDiv, Text } from "@shared/ui";
+import { Button, FlexDiv, Text } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
 

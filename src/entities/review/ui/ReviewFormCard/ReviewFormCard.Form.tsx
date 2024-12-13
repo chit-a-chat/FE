@@ -1,6 +1,4 @@
-import { Button } from "@widgets/components";
-
-import { FlexDiv, StarRating, Text } from "@shared/ui";
+import { Button, FlexDiv, StarRating, Text } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
 
