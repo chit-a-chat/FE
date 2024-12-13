@@ -26,7 +26,7 @@ export const Chip = ({ index, value, onDelete, isDeleteable }: ChipProps) => {
                 verticalAlign: "middle",
             }}
         >
-            <Badge radius="full" backgroundColor={theme.palette.grey[0]}>
+            <Badge size="lg" radius="full" backgroundColor={theme.palette.grey[0]}>
                 {value}
                 <div
                     onClick={() => {

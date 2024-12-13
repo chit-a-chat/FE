@@ -12,9 +12,9 @@ type BadgeProps = PropsWithChildren<{
     color?: string;
     radius?: "none" | "full";
     fontVariant?: TTypoVariant;
-    padding?: string;
     isShadow?: boolean;
     gap?: number;
+    size: "sm" | "md" | "lg";
     onClick?: () => void;
 }>;
 
@@ -23,15 +23,20 @@ const RadiusToBorderRadius = {
     full: "30px",
 } as const;
 
+const SIZE_TO_PADDING = {
+    sm: "3px 12px",
+    md: "4px 12px",
+    lg: "5px 12px",
+} as const;
 export const Badge = ({
     children,
+    size,
     width = "fit-content",
     height = "fit-content",
     backgroundColor,
     color,
     radius = "none",
     fontVariant = "tag/regular",
-    padding = "5px 12px",
     isShadow = false,
     gap = 0,
     ...props
@@ -71,7 +76,7 @@ export const Badge = ({
                 backgroundColor,
                 color,
                 borderRadius: RadiusToBorderRadius[radius],
-                padding,
+                padding: SIZE_TO_PADDING[size],
                 boxShadow: isShadow ? "0px 0px 5px #C3B2FF" : undefined,
                 gap: gap ? `${gap}px` : undefined,
             }}

@@ -53,9 +53,9 @@ export const ProfilePhoto = ({ src, index }: ProfilePhotoProps) => {
                 accept="image/*"
             />
             <Badge
+                size="lg"
                 radius="full"
                 backgroundColor={theme.palette.grey[0]}
-                fontVariant="tag/regular"
                 color={theme.palette.common.black}
                 css={{
                     position: "absolute",
