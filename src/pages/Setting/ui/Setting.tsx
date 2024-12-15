@@ -1,11 +1,9 @@
 import { useRef } from "react";
 
-import { Button } from "@widgets/components";
-
 import { useAccountStore } from "@entities/account";
 
 import { Icon } from "@shared/Icon";
-import { Divider, FlexDiv, Input, Text, Toggle } from "@shared/ui";
+import { Button, Divider, FlexDiv, Input, Text, Toggle } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
 

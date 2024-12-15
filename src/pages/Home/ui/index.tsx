@@ -4,11 +4,10 @@ import { HomeMatcheRecommendations } from "@widgets/HomeMatchRecommendations";
 import { HomeMatchRequests } from "@widgets/HomeMatchRequests";
 import { HomePictureList } from "@widgets/HomePictureList";
 import { HomeStatistics } from "@widgets/HomeStatistics";
-import { Button } from "@widgets/components";
 
 import { useAccountStore } from "@entities/account";
 
-import { FlexDiv, Text } from "@shared/ui";
+import { Button, FlexDiv, Text } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
 

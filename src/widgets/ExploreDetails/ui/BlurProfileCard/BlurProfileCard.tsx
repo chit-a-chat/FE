@@ -2,9 +2,7 @@ import { useCallback, useState } from "react";
 
 import { useTranslation } from "react-i18next";
 
-import { Button } from "@widgets/components";
-
-import { FlexDiv } from "@shared/ui";
+import { Button, FlexDiv } from "@shared/ui";
 
 import styled from "@emotion/styled";
 

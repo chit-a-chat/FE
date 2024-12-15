@@ -1,11 +1,9 @@
 import { useTranslation } from "react-i18next";
 
-import { Button } from "@widgets/components";
-
 import { MatchRecommend } from "@entities/match/model/models";
 
 import { Icon } from "@shared/Icon";
-import { FlexDiv, Profile, Text } from "@shared/ui";
+import { Button, FlexDiv, Profile, Text } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
 
