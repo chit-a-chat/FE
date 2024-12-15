@@ -35,7 +35,12 @@ export const InterestList = ({ interests }: InterestListProps) => {
             }}
         >
             {interests.map((interest) => (
-                <Badge key={interest} backgroundColor={theme.palette.font.white} radius="full">
+                <Badge
+                    key={interest}
+                    size="lg"
+                    backgroundColor={theme.palette.font.white}
+                    radius="full"
+                >
                     {InterestToIcons[interest] && (
                         <Icon
                             type={InterestToIcons[interest]}

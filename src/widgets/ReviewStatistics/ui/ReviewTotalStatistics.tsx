@@ -27,6 +27,7 @@ export const ReviewTotalStatistics = ({
                     {totalValue}
                 </Text>
                 <Badge
+                    size="lg"
                     radius="full"
                     backgroundColor={theme.palette.primary[0]}
                     color={theme.palette.primary[6]}

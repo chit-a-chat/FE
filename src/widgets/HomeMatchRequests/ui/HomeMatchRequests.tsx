@@ -50,6 +50,7 @@ export const HomeMatchRequests = () => {
             </FlexDiv>
             <FlexDiv direction="row" gap={10} css={{ paddingLeft: "20px" }}>
                 <Badge
+                    size="lg"
                     radius="full"
                     fontVariant="tag/regular"
                     color={theme.palette.common.black}
@@ -58,6 +59,7 @@ export const HomeMatchRequests = () => {
                     {t("MatchRequestBadge")}
                 </Badge>
                 <Badge
+                    size="lg"
                     radius="full"
                     fontVariant="tag/regular"
                     color={theme.palette.common.black}

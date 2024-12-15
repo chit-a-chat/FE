@@ -16,6 +16,7 @@ export const ExploreBadge = ({ label, icon, isMain = false }: ExploreBadgeProps)
     return (
         <Badge
             key={`${label}`}
+            size="lg"
             radius="full"
             fontVariant="tag/regular"
             backgroundColor={isMain ? theme.palette.primary[0] : theme.palette.grey[0]}

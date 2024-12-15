@@ -131,6 +131,7 @@ export const ExploreDetails = () => {
                             Reviews
                         </Text>
                         <Badge
+                            size="lg"
                             backgroundColor={theme.palette.primary[0]}
                             fontVariant="tag/regular"
                             color={theme.palette.common.black}

@@ -21,15 +21,16 @@ export const ExploreLikesButton = ({ numOfLikes, targetId, isLike }: ExploreLike
     return (
         <div>
             <Badge
+                size="lg"
                 radius="full"
                 fontVariant="tag/medium"
                 color={theme.palette.primary[5]}
-                padding={"10px"}
                 gap={4}
                 isShadow
                 css={{
                     alignItems: "center",
                     cursor: "pointer",
+                    padding: "9.5px 10px",
                 }}
                 onClick={postLikes}
             >
