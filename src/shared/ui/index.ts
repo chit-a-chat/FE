@@ -20,3 +20,5 @@ export { Input } from "./Input/Input";
 export { Toggle } from "./Toggle/Toggle";
 export { Button } from "./Button/Button";
 export { Modal } from "./Modal/Modal";
+export { Accordion } from "./Accordion/Accordion";
+export { Portal2 } from "./Portal/Portal2";
