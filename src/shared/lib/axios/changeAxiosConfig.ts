@@ -29,6 +29,7 @@ export const changeAxiosConfig = () => {
     axios.interceptors.response.use(
         /** httpStatus 200번대 일경우 res */
         (res) => {
+            console.log(res);
             return res;
         },
         /** 에러 발생시 사전 처리(httpStatus 200 응답 제외 모든 것) */

@@ -69,6 +69,6 @@ export interface ProfileState {
         Politic: string[];
         Religion: string[];
         Diet: string[];
-        Allegies: string[];
+        Allergies: string[];
     };
 }

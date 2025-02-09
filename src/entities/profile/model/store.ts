@@ -42,7 +42,7 @@ export const useProfileStore = create<ProfileStore>((set, get) => ({
             Politic: ["Democrat"],
             Religion: ["Catholic"],
             Diet: ["Vegetarian"],
-            Allegies: ["Nuts"],
+            Allergies: ["Nuts"],
         },
     },
     setTargetChipValue: (label, value) => {

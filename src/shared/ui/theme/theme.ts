@@ -207,6 +207,24 @@ const typoKo: Record<
         letterSpacing: "0.1px",
         fontWeight: 600,
     },
+    "modal/title": {
+        fontSize: "21px",
+        lineHeight: "32px",
+        letterSpacing: "0px",
+        fontWeight: 500,
+    },
+    "modal/heading": {
+        fontSize: "16px",
+        lineHeight: "24px",
+        letterSpacing: "0.25px",
+        fontWeight: 500,
+    },
+    "modal/body": {
+        fontSize: "16px",
+        lineHeight: "24px",
+        letterSpacing: "0.25px",
+        fontWeight: 400,
+    },
 } as const;
 
 // Typography 영어
@@ -387,6 +405,24 @@ const typoEn: Record<
         letterSpacing: "0.1px",
         fontWeight: 600,
     },
+    "modal/title": {
+        fontSize: "18px",
+        lineHeight: "21px",
+        letterSpacing: "0.1px",
+        fontWeight: 500,
+    },
+    "modal/heading": {
+        fontSize: "16px",
+        lineHeight: "24px",
+        letterSpacing: "0.25px",
+        fontWeight: 500,
+    },
+    "modal/body": {
+        fontSize: "16px",
+        lineHeight: "24px",
+        letterSpacing: "0.25px",
+        fontWeight: 400,
+    },
 } as const;
 
 const buttonShape = {
@@ -421,7 +457,7 @@ const lightButtonColor = {
         default: {
             primary: lightPalette.primary[5],
             secondary: lightPalette.common.white,
-            error: lightPalette.red[4],
+            error: lightPalette.red[5],
             disable: lightPalette.grey[1],
         },
         hover: {

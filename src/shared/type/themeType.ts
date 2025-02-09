@@ -36,7 +36,10 @@ export type TTypoVariant =
     | "tag/regular"
     | "supporting/regular"
     | "supporting/medium"
-    | "supporting/bold";
+    | "supporting/bold"
+    | "modal/title"
+    | "modal/heading"
+    | "modal/body";
 
 // push notification types
 export type TPushNotification = "default" | "error" | "success" | "info";

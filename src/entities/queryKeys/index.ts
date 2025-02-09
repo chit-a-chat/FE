@@ -1,3 +1,5 @@
+import { chatApiQueryKeys } from "@entities/chat";
+
 import { inferQueryKeyStore, mergeQueryKeys } from "@lukemorales/query-key-factory";
 
 import { exampleQueryKeys } from "../example";
@@ -14,7 +16,7 @@ import { exampleUserQueryKey } from "../exampleUser";
  * queryFn: () => {}
  * })
  */
-export const queryKeys = mergeQueryKeys(exampleQueryKeys, exampleUserQueryKey);
+export const queryKeys = mergeQueryKeys(exampleQueryKeys, exampleUserQueryKey, chatApiQueryKeys);
 
 /** 도메인별 쿼리키에 따른 queryFn의 Prop 타입
  *

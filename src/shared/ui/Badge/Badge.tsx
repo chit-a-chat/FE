@@ -14,6 +14,9 @@ type BadgeProps = PropsWithChildren<{
     fontVariant?: TTypoVariant;
     isShadow?: boolean;
     gap?: number;
+    /**
+     * @param size - sm: pd 3px 12px, md: pd 4px 12px, lg: pd 5px 12px
+     */
     size: "sm" | "md" | "lg";
     onClick?: () => void;
 }>;

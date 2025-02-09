@@ -54,7 +54,7 @@ export const StarRating = ({ rate: initialRate, size = "md", isEdit = false }: S
     return (
         <FlexDiv
             direction="row"
-            css={{ ...SizeToCss[size] }}
+            css={{ ...SizeToCss[size], pointerEvents: isEdit ? undefined : "none" }}
             onClick={isEdit ? handleClickStar : undefined}
             onMouseLeave={isEdit ? handleLeaveStar : undefined}
             onMouseMove={isEdit ? handleHoverStar : undefined}
