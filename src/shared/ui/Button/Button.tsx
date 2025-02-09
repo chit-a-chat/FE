@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, forwardRef } from "react";
 
 import { Icon } from "@shared/Icon";
 import { TButtonVariant, TIcon } from "@shared/type";
@@ -60,17 +60,12 @@ const TYPO_VARIANT = {
     lg: "button/large",
 } as const;
 
-// TODO: typography theme 적용 2024.08.03. 김하늬
-export function Button({
-    variant = "primary",
-    label,
-    iconLeft,
-    iconRight,
-    size = "md",
-    ...props
-}: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) {
+export const Button = forwardRef<
+    HTMLButtonElement,
+    ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>
+>(({ variant = "primary", label, iconLeft, iconRight, size = "md", ...props }, ref) => {
     return (
-        <StyledButton variant={variant} size={size} {...props}>
+        <StyledButton variant={variant} size={size} ref={ref} {...props}>
             {iconLeft && (
                 <Icon
                     type={iconLeft.icon}
@@ -90,4 +85,4 @@ export function Button({
             )}
         </StyledButton>
     );
-}
+});

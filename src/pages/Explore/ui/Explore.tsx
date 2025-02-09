@@ -1,7 +1,11 @@
+import { useEffect, useRef, useState } from "react";
+
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 import { ExploreDetails } from "@widgets/ExploreDetails";
+
+import { PreferenceController } from "@entities/explore";
 
 import { Icon } from "@shared/Icon";
 import { withLogin } from "@shared/lib";
@@ -11,8 +15,20 @@ import { useTheme } from "@emotion/react";
 
 export const Explore = withLogin(() => {
     const theme = useTheme();
+    const [isPreference, setIsPreference] = useState<boolean>(false);
     const navigate = useNavigate();
     const { t } = useTranslation("explore");
+    const toggleOpenPreference = () => {
+        setIsPreference((prev) => !prev);
+    };
+    const ButtonRef = useRef<HTMLButtonElement>(null);
+    const [buttonElement, setButtonElement] = useState<HTMLButtonElement>();
+    useEffect(() => {
+        if (ButtonRef.current) {
+            setButtonElement(ButtonRef.current);
+        }
+    }, []);
+
     return (
         <article
             css={{
@@ -44,11 +60,20 @@ export const Explore = withLogin(() => {
                     {t("Title")}
                 </Text>
                 <Button
+                    id="preference-btn"
+                    ref={ButtonRef}
                     iconLeft={{ icon: "adjustments-horizontal", color: theme.palette.primary[6] }}
                     variant="secondary"
                     label={t("PreferenceButton")}
                     size="md"
+                    onClick={toggleOpenPreference}
                 />
+                {buttonElement && isPreference && (
+                    <PreferenceController
+                        anchorEl={buttonElement}
+                        handleClose={toggleOpenPreference}
+                    />
+                )}
             </FlexDiv>
             <ExploreDetails />
         </article>
