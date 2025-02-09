@@ -14,3 +14,11 @@ export type MatchRequest = {
     profileImage: string;
     requestTime: Date;
 };
+
+export type Like = {
+    id: string;
+    targetId: string;
+    name: string;
+    profileImage: string;
+    likeTime: Date;
+};

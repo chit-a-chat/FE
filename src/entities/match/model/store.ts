@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { MatchRecommend, MatchRequest } from "./models";
+import { Like, MatchRecommend, MatchRequest } from "./models";
 
 interface MatchRecommendationStore {
     matches: MatchRecommend[];
@@ -13,9 +13,11 @@ interface MatchRecommendationStore {
 
 interface MatchRequestStore {
     matchRequests: MatchRequest[];
+    likeList: Like[];
     getMatchRequests: () => Promise<{
         matchRequests: MatchRequest[];
     }>;
+    getLikeList: () => Promise<{ likeList: Like[] }>;
     rejectRequest: () => void;
     acceptRequest: () => void;
 }
@@ -69,6 +71,7 @@ export const useMatchRecommendation = create<MatchRecommendationStore>((set) => 
 
 export const useMatchRequests = create<MatchRequestStore>((set) => ({
     matchRequests: [],
+    likeList: [],
     getMatchRequests: async () => {
         const matchRequests = {
             matchRequests: [
@@ -118,6 +121,38 @@ export const useMatchRequests = create<MatchRequestStore>((set) => ({
         };
         set(matchRequests);
         return matchRequests;
+    },
+    getLikeList: async () => {
+        const likeList: { likeList: Like[] } = {
+            likeList: [
+                {
+                    id: "123",
+                    name: "CoolioApple",
+                    profileImage:
+                        "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    targetId: "123",
+                    likeTime: new Date(2024, 9, 26, 17, 30),
+                },
+                {
+                    id: "124",
+                    name: "Banana123",
+                    profileImage:
+                        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    targetId: "124",
+                    likeTime: new Date(2024, 9, 26, 20, 20),
+                },
+                {
+                    id: "125",
+                    name: "Banana2345",
+                    profileImage:
+                        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    targetId: "125",
+                    likeTime: new Date(2024, 9, 27, 12, 10),
+                },
+            ],
+        };
+        set(likeList);
+        return likeList;
     },
     acceptRequest: () => {},
     rejectRequest: () => {},
