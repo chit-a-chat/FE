@@ -23,4 +23,18 @@ export const home = {
     UpdateCardRejectButton: "Reject",
     UpdateCardAcceptButton: "Accept",
     TimeSuffix: " hours ago",
+    LikeSuffix: "You received “Like”! Would you like to check details about this person?",
+    LikeProfileCheck: "View profile preview",
+    ProfilePreview: {
+        Title: "Profile preview",
+        DistanceSuffix: "km away from you",
+        ViewMore: "View profile in explore",
+        interest: {
+            title: "Your main interest",
+            AboutMe: "About me",
+            LookingFor: "I am looking for",
+            AdditionalInfo: "More about me",
+            Language: "Languages I can speak",
+        },
+    },
 } as const;
