@@ -1,16 +1,18 @@
 import { PropsWithChildren } from "react";
 
 import { Backdrop } from "../Backdrop/Backdrop";
-import { Portal } from "../Portal/Portal";
+import { Portal2 } from "../Portal/Portal2";
 
-export const Modal = ({ children }: PropsWithChildren) => {
+type ModalProps = PropsWithChildren<{ onClickBackdrop?: () => void }>;
+
+export const Modal = ({ children, onClickBackdrop }: ModalProps) => {
     if (!children) {
         return;
     }
 
     return (
-        <Portal zIndex={100}>
-            <Backdrop isBlur={true} />
+        <Portal2>
+            <Backdrop isBlur={true} onClick={onClickBackdrop} />
             <div
                 css={{
                     position: "fixed",
@@ -21,6 +23,6 @@ export const Modal = ({ children }: PropsWithChildren) => {
             >
                 {children}
             </div>
-        </Portal>
+        </Portal2>
     );
 };
