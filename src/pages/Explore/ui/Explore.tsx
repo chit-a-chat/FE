@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { ExploreDetails } from "@widgets/ExploreDetails";
 
 import { Icon } from "@shared/Icon";
+import { withLogin } from "@shared/lib";
 import { Button, FlexDiv, Text } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
 
-export const Explore = () => {
+export const Explore = withLogin(() => {
     const theme = useTheme();
     const navigate = useNavigate();
     const { t } = useTranslation("explore");
@@ -52,4 +53,4 @@ export const Explore = () => {
             <ExploreDetails />
         </article>
     );
-};
+});

@@ -115,10 +115,10 @@ export const PROFILE_FORM_SKELETON: ProfileSkeleton = {
             valueKey: "Diet",
         },
         {
-            label: "Allegies",
+            label: "Allergies",
             caption: "Do you have any allergies?",
             type: "chip",
-            valueKey: "Allegies",
+            valueKey: "Allergies",
         },
     ],
 } as const;

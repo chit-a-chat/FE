@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 
+import { useTranslation } from "react-i18next";
+
 import { PROFILE_FORM_SKELETON, useProfileStore } from "@entities/profile";
 import { ProfilePhotoList } from "@entities/profile/ui/ProfilePhotoList";
 
@@ -25,6 +27,7 @@ export const MyProfile = () => {
         };
     }, []);
     const debounceKey = useRef<number | null>(null);
+    const { t } = useTranslation("profile");
     return (
         <section
             css={{
@@ -38,10 +41,10 @@ export const MyProfile = () => {
         >
             <FlexDiv direction="column" gap={2}>
                 <Text typoVariant="h1/bold" color={theme.palette.grey[8]}>
-                    Your profile
+                    {t("Title")}
                 </Text>
                 <Text typoVariant="h2/medium" color={theme.palette.grey[8]}>
-                    Customise how others see your profile.
+                    {t("SubTitle")}
                 </Text>
             </FlexDiv>
             <FlexDiv
@@ -59,7 +62,7 @@ export const MyProfile = () => {
                         flex: 1,
                     }}
                 >
-                    About you
+                    {t("AboutYou.Title")}
                 </Text>
                 {PROFILE_FORM_SKELETON.AboutYou.map((profileData) => {
                     switch (profileData.type) {
@@ -76,8 +79,8 @@ export const MyProfile = () => {
                                     key={`${profileData.label}`}
                                 >
                                     <ProfileLabelCaption
-                                        label={profileData.label}
-                                        caption={profileData.caption}
+                                        label={t(`AboutYou.${profileData.valueKey}.label`)}
+                                        caption={t(`AboutYou.${profileData.valueKey}.subscription`)}
                                     />
                                     <ChipInput
                                         defaultValue={AboutYou[profileData.valueKey]}
@@ -96,8 +99,8 @@ export const MyProfile = () => {
                                     key={`${profileData.label}`}
                                 >
                                     <ProfileLabelCaption
-                                        label="Photo"
-                                        caption="Highlight your true self."
+                                        label={t("AboutYou.Photo.label")}
+                                        caption={t("AboutYou.Photo.subscription")}
                                     />
                                     <ProfilePhotoList />
                                 </FlexDiv>
@@ -112,8 +115,8 @@ export const MyProfile = () => {
                                     key={`${profileData.label}`}
                                 >
                                     <ProfileLabelCaption
-                                        label={profileData.label}
-                                        caption={profileData.caption}
+                                        label={t("AboutYou.Bio.label")}
+                                        caption={t("AboutYou.Bio.subscription")}
                                     />
                                     <Textarea
                                         rows={2}
@@ -141,7 +144,7 @@ export const MyProfile = () => {
                     color={theme.palette.common.black}
                     css={{ flexBasis: "100%" }}
                 >
-                    Your life style
+                    {t("YourLifeStyle.Title")}
                 </Text>
 
                 {PROFILE_FORM_SKELETON.LifeStyle.map((profileData, index) => {
@@ -157,8 +160,8 @@ export const MyProfile = () => {
                             }}
                         >
                             <ProfileLabelCaption
-                                label={profileData.label}
-                                caption={profileData.caption}
+                                label={t(`YourLifeStyle.${profileData.valueKey}.label`)}
+                                caption={t(`YourLifeStyle.${profileData.valueKey}.subscription`)}
                             />
                             <ChipInput
                                 defaultValue={LifeStyle[profileData.valueKey]}

@@ -4,15 +4,9 @@ import { media } from "../theme/media";
 
 export const Layout = styled.div`
     width: 1440px;
-    min-height: 100vh;
-    display: flex;
+    display: block;
     flex-direction: column;
     margin: 0 auto;
-    & > main {
-        display: flex;
-        flex: 1;
-    }
-
     ${media.small`
     `};
     ${media.medium`

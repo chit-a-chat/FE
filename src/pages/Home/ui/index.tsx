@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 
+import { Footer } from "@widgets/Foooter";
 import { HomeMatcheRecommendations } from "@widgets/HomeMatchRecommendations";
 import { HomeMatchRequests } from "@widgets/HomeMatchRequests";
 import { HomePictureList } from "@widgets/HomePictureList";
@@ -29,6 +30,7 @@ export function Home() {
                 flex: 1,
                 gap: isLoggedIn ? "20px" : undefined,
                 minHeight: 0,
+                height: "calc(100vh - 100px)",
             }}
         >
             {isLoggedIn ? (
@@ -47,42 +49,48 @@ export function Home() {
                     </FlexDiv>
                 </>
             ) : (
-                <FlexDiv
-                    direction="column"
-                    gap={48}
-                    alignItems="center"
-                    justifyContent="center"
-                    css={{ flex: 1 }}
-                >
-                    <FlexDiv direction="column" gap={24}>
+                <>
+                    <FlexDiv
+                        direction="column"
+                        gap={48}
+                        alignItems="center"
+                        justifyContent="center"
+                        css={{ flex: 1 }}
+                    >
                         <FlexDiv direction="column" gap={24}>
-                            <FlexDiv gap={5} direction="column" alignItems="center">
-                                <Text typoVariant="display/large" color={theme.palette.primary[7]}>
-                                    {t("MainTitle")}
-                                </Text>
-                                <HomeTitleLogo />
+                            <FlexDiv direction="column" gap={24}>
+                                <FlexDiv gap={5} direction="column" alignItems="center">
+                                    <Text
+                                        typoVariant="display/large"
+                                        color={theme.palette.primary[7]}
+                                    >
+                                        {t("MainTitle")}
+                                    </Text>
+                                    <HomeTitleLogo />
+                                </FlexDiv>
+                                <FlexDiv>
+                                    <Text
+                                        typoVariant="h4/regular"
+                                        color={theme.palette.grey[6]}
+                                        css={{ textAlign: "center" }}
+                                    >
+                                        {t("SubTitle")}
+                                    </Text>
+                                </FlexDiv>
                             </FlexDiv>
-                            <FlexDiv>
-                                <Text
-                                    typoVariant="h4/regular"
-                                    color={theme.palette.grey[6]}
-                                    css={{ textAlign: "center" }}
-                                >
-                                    {t("SubTitle")}
-                                </Text>
-                            </FlexDiv>
+                            <Button
+                                label={t("MainButton")}
+                                iconRight={{ icon: "search", color: theme.palette.common.white }}
+                                size="lg"
+                            />
                         </FlexDiv>
-                        <Button
-                            label={t("MainButton")}
-                            iconRight={{ icon: "search", color: theme.palette.common.white }}
-                            size="lg"
-                        />
+                        <FlexDiv direction="column" gap={24}>
+                            <HomeStatistics />
+                            <HomePictureList />
+                        </FlexDiv>
                     </FlexDiv>
-                    <FlexDiv direction="column" gap={24}>
-                        <HomeStatistics />
-                        <HomePictureList />
-                    </FlexDiv>
-                </FlexDiv>
+                    <Footer />
+                </>
             )}
         </section>
     );

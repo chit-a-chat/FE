@@ -1,14 +1,17 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import axios from "axios";
+import { HttpHandler, WebSocketHandler } from "msw";
 import { SetupWorker } from "msw/browser";
+
+import { DropdownMenu } from "@shared/ui";
 
 /** Dev환경에서 우측 상단의 툴박스 (Mock Api이외에 더 추가된다면 공통적으로 쓰게 이동.) */
 export const MockApiSetter = ({ worker }: { worker: SetupWorker }) => {
     /** 툴박스 열림 여부 */
     const [isOpen, setIsOpen] = useState<boolean>(false);
     /** MockApi 서버 On/Off 여부 */
-    const [isMockApi, setIsMockApi] = useState<boolean>(false);
+    const [isMockApi, setIsMockApi] = useState<boolean>(true);
     /** 서버 크기/켜기 */
     const toggleWorker = useCallback(async (worker: SetupWorker, isWorkerLive: boolean) => {
         isWorkerLive ? worker.stop() : await worker.start();
@@ -20,7 +23,12 @@ export const MockApiSetter = ({ worker }: { worker: SetupWorker }) => {
     };
     /** TEXT 입력하는 것 받는 것 */
     const [jsonText, setJsonText] = useState<string>("");
-
+    const [selectedAPI, setSelectedAPI] = useState<{ url: string; method: "POST" | "GET" }>({
+        url: "",
+        method: "GET",
+    });
+    const params = selectedAPI.url.split("/").filter((aString) => aString.startsWith(":"));
+    const paramsRef = useRef<Record<string, HTMLInputElement>>({});
     return (
         <>
             {!isOpen && (
@@ -28,13 +36,14 @@ export const MockApiSetter = ({ worker }: { worker: SetupWorker }) => {
                     style={{
                         position: "absolute",
                         top: 0,
-                        right: 0,
+                        left: 0,
                         width: "110px",
                         height: "70px",
                         background: "red",
                         opacity: "0.4",
-                        clipPath: "polygon(0px 0px, 100% 0px, 100% 100%)",
+                        clipPath: "polygon(0px 0px, 100% 0px, 0px 100%)",
                         cursor: "pointer",
+                        zIndex: 100,
                     }}
                     onClick={toggleOpen}
                 >
@@ -42,7 +51,7 @@ export const MockApiSetter = ({ worker }: { worker: SetupWorker }) => {
                         style={{
                             position: "absolute",
                             top: "10px",
-                            right: "5px",
+                            left: "5px",
                             fontWeight: 700,
                         }}
                     >
@@ -53,9 +62,10 @@ export const MockApiSetter = ({ worker }: { worker: SetupWorker }) => {
             {isOpen && (
                 <div
                     style={{
+                        zIndex: 100,
                         display: "flex",
                         flexDirection: "column",
-                        right: 0,
+                        left: 0,
                         top: 0,
                         width: "400px",
                         height: "fit-content",
@@ -129,8 +139,8 @@ export const MockApiSetter = ({ worker }: { worker: SetupWorker }) => {
                                 width: "30px",
                                 height: "30px",
                                 background: "red",
-                                clipPath: "polygon(0px 0px, 100% 100%, 0px 100%)",
-                                left: 0,
+                                clipPath: "polygon(100% 0px, 100% 100%, 0px 100%)",
+                                right: 0,
                                 bottom: 0,
                                 cursor: "pointer",
                             }}
@@ -138,48 +148,107 @@ export const MockApiSetter = ({ worker }: { worker: SetupWorker }) => {
                         />
                     </div>
                     <div>
-                        <div>Api 목록</div>
-                        <br />
-                        {worker.listHandlers().map((aHttpHandler) => {
-                            const [method, requestUrl] = aHttpHandler.info.header.split(" ");
-                            return (
+                        <DropdownMenu>
+                            <DropdownMenu.Trigger>
                                 <div
-                                    key={`${method}-${requestUrl}`}
                                     style={{
                                         display: "flex",
                                         flexDirection: "row",
                                         justifyContent: "start",
                                         marginTop: "10px",
+                                        border: "1px solid black",
+                                        borderRadius: "5px",
+                                        padding: "3px 5px",
                                     }}
                                 >
-                                    <div style={{ fontWeight: 700, width: "60px" }}>{method}</div>
-                                    <div>{requestUrl}</div>
-                                    <button
-                                        onClick={() => {
-                                            /** json 형식으로 파싱 */
-                                            const req = JSON.parse(
-                                                jsonText.length > 0 ? jsonText : "{}"
-                                            );
-                                            /** 요청 보내기 */
-                                            axios
-                                                .request({
-                                                    method: method,
-                                                    url: requestUrl,
-                                                    data: req,
-                                                })
-                                                .then((res) => {
-                                                    console.log("req : ", req);
-                                                    console.log("res : ", res);
-                                                });
-                                        }}
-                                    >
-                                        api 발사
-                                    </button>
+                                    <div style={{ fontWeight: 700, width: "60px" }}>
+                                        {selectedAPI.method}
+                                    </div>
+                                    <div>
+                                        <div>{selectedAPI.url}</div>
+                                    </div>
                                 </div>
-                            );
-                        })}
-                        <div style={{ display: "flex", alignItems: "center" }}>
-                            <span>body:</span>
+                            </DropdownMenu.Trigger>
+                            <DropdownMenu.Content>
+                                <div
+                                    css={{
+                                        backgroundColor: "whitesmoke",
+                                        border: "1px solid black",
+                                        borderRadius: "5px",
+                                        padding: "5px 5px",
+                                        left: 0,
+                                    }}
+                                >
+                                    {worker.listHandlers().map((aHttpHandler) => {
+                                        if (!(aHttpHandler instanceof HttpHandler)) {
+                                            if (aHttpHandler instanceof WebSocketHandler) {
+                                                return;
+                                            }
+                                            return;
+                                        }
+                                        const [method, requestUrl] =
+                                            aHttpHandler.info.header.split(" ");
+                                        return (
+                                            <DropdownMenu.Item
+                                                key={`${method}-${requestUrl}`}
+                                                onClick={() => {
+                                                    setSelectedAPI({
+                                                        method: method as "GET" | "POST",
+                                                        url: requestUrl,
+                                                    });
+                                                }}
+                                            >
+                                                <div
+                                                    style={{
+                                                        display: "flex",
+                                                        flexDirection: "row",
+                                                        justifyContent: "start",
+                                                        marginTop: "10px",
+                                                    }}
+                                                >
+                                                    <div style={{ fontWeight: 700, width: "60px" }}>
+                                                        {method}
+                                                    </div>
+                                                    <div>
+                                                        <div>{requestUrl}</div>
+                                                    </div>
+                                                </div>
+                                            </DropdownMenu.Item>
+                                        );
+                                    })}
+                                </div>
+                            </DropdownMenu.Content>
+                        </DropdownMenu>
+                        {params.length > 0 && (
+                            <div
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    gap: "15px",
+                                    marginTop: "15px",
+                                }}
+                            >
+                                <span>파라미터</span>
+                                {params.map((aParam) => (
+                                    <div key={`param-${aParam}`}>
+                                        <span>{aParam.slice(1)} : </span>
+                                        <input
+                                            type="text"
+                                            ref={(inputElem) => {
+                                                if (inputElem) {
+                                                    paramsRef.current[aParam] = inputElem;
+                                                    return;
+                                                }
+                                                delete paramsRef.current[aParam];
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        <div style={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
+                            <span>body : </span>
                             <textarea
                                 value={jsonText}
                                 onChange={(e) => {
@@ -189,6 +258,31 @@ export const MockApiSetter = ({ worker }: { worker: SetupWorker }) => {
                             />
                         </div>
                     </div>
+                    <button
+                        css={{
+                            cursor: "pointer",
+                            border: "1px solid black",
+                            borderRadius: "10px",
+                            padding: "4px 10px",
+                        }}
+                        onClick={() => {
+                            /** json 형식으로 파싱 */
+                            const req = JSON.parse(jsonText.length > 0 ? jsonText : "{}");
+                            /** 요청 보내기 */
+                            axios
+                                .request({
+                                    method: selectedAPI.method,
+                                    url: selectedAPI.url,
+                                    data: req,
+                                })
+                                .then((res) => {
+                                    console.log("req : ", req);
+                                    console.log("res : ", res);
+                                });
+                        }}
+                    >
+                        API 전송
+                    </button>
                 </div>
             )}
         </>

@@ -2,12 +2,12 @@ import { Navigate, Outlet, RouterProvider, createBrowserRouter } from "react-rou
 
 import { Explore } from "@pages/Explore";
 import { Home } from "@pages/Home";
+import { Matches } from "@pages/Matches/indes";
 import { MyProfile } from "@pages/MyProfile";
 import { Reviews } from "@pages/Reviews";
 import { Setting } from "@pages/Setting";
 import { SignIn } from "@pages/SignIn";
 
-import { Footer } from "@widgets/Foooter";
 import { GNB } from "@widgets/GNB";
 
 import { Layout } from "@shared/ui";
@@ -24,10 +24,7 @@ export function AppRouter() {
             element: (
                 <Layout>
                     <GNB />
-                    <main css={{ minHeight: 0 }}>
-                        <Outlet />
-                    </main>
-                    <Footer />
+                    <Outlet />
                 </Layout>
             ),
             errorElement: <RouterErrorBoundary />,
@@ -42,7 +39,7 @@ export function AppRouter() {
                 },
                 {
                     path: "matches",
-                    element: <div>matches</div>,
+                    element: <Matches />,
                 },
                 {
                     path: "community",
@@ -76,9 +73,7 @@ export function AppRouter() {
             path: "sign-in",
             element: (
                 <Layout>
-                    <main css={{ minHeight: 0, maxHeight: "100vh" }}>
-                        <SignIn />
-                    </main>
+                    <SignIn />
                 </Layout>
             ),
         },

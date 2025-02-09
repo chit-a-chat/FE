@@ -6,6 +6,7 @@ import { ICONS } from "./constant/Icons";
 import { CustomIcon } from "./customIcons/CustomIcon";
 
 const SIZE_TO_PIXEL = {
+    xxl: 120,
     xl: 30,
     l: 24,
     m: 20,

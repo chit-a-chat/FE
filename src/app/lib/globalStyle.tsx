@@ -23,6 +23,11 @@ const baseCss = (language: typeof i18n.language, theme: Theme) => css`
         -moz-osx-font-smoothing: grayscale;
         vertical-align: baseline;
     }
+    input {
+        font-family: ${language === "Korean"
+            ? "'IBM Plex Sans KR', sans-serif"
+            : "'Roboto', sans-serif"};
+    }
     body,
     div,
     span,

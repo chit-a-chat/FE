@@ -10,7 +10,7 @@ import { SignUp } from "./components/SignUp";
 export const SignIn = () => {
     const theme = useTheme();
     return (
-        <>
+        <main css={{ display: "flex", height: "100vh" }}>
             <section
                 css={{
                     flex: 1,
@@ -143,6 +143,6 @@ export const SignIn = () => {
                     </SignInStatistics.Card>
                 </SignInStatistics>
             </section>
-        </>
+        </main>
     );
 };

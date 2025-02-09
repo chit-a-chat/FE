@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import { Button, FlexDiv, StarRating, Text } from "@shared/ui";
 
 import { useTheme } from "@emotion/react";
@@ -6,6 +8,7 @@ import { ReviewTextarea } from "./ReviewFormCard.Textarea";
 
 export const ReviewCardForm = () => {
     const theme = useTheme();
+    const { t } = useTranslation("reviews");
     return (
         <FlexDiv
             direction="column"
@@ -18,14 +21,14 @@ export const ReviewCardForm = () => {
             }}
         >
             <Text typoVariant="h5/bold" color={theme.palette.grey[8]}>
-                Rating
+                {t("Detail.Rating")}
             </Text>
             <StarRating rate={0} isEdit />
             <Text typoVariant="h5/bold" color={theme.palette.grey[8]}>
-                Comments
+                {t("Detail.Comments")}
             </Text>
             <ReviewTextarea />
-            <Button label="Submit" size="md" css={{ alignSelf: "flex-end" }} />
+            <Button label={t("Detail.SubmitBtn")} size="md" css={{ alignSelf: "flex-end" }} />
         </FlexDiv>
     );
 };
