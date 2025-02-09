@@ -523,6 +523,7 @@ export const shadow = {
     innerShadowPrimary: "inset 0px 0px 10px rgba(162, 129, 255, 0.4)",
     profileShadow: "0px 15.4524px 30.9049px rgba(195, 178, 255, 0.2)",
     tabPurpleShadow: "0px 0px 5px #C3B2FF",
+    tabCommonShadow: "0px 0px 5px #BBB9B4;",
 } as const;
 export const typoKorean = { ...typoKo, ...lightTypoColor, ...fontFamily };
 export const typoEnglish = { ...typoEn, ...lightTypoColor, ...fontFamily };
